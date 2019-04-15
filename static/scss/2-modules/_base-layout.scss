@@ -3,9 +3,38 @@
     height: 80px;
 }
 
-.navbar-brand{
+.logo{
     height: 50px;
 }
 
 
+/**** footer ****/
+.footer{
+    display: grid;
+    height: 200px;
+    background-color:#07275e;
+    color: white;
+    padding: 15px;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    justify-items: center;
+}
+
+.footer-about{
+    font-size: .6rem;  
+    margin-right: 10px; 
+}
+
+.footer-logo{
+    height: 110px;
+    margin-right: 5px;
+}
+
+.footer-jobseek{
+    color: white;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 1.3rem;
+    letter-spacing: 1.5px;
+}
 
