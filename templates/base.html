@@ -6,13 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- **** Bootstrap 4 css **** -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">    
-    <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     <title>Jobseek</title>
 </head>
 <body>
     <header class="container-fluid mp-none">
         <nav class="navbar navbar-expand-md navbar-light bg-light">
-            <a href="#" class="navbar-brand"><img class="logo" src="static/assets/images/Jobseek.png"></a>
+            <a href="#" class="navbar-brand"><img class="logo" src="{{ url_for('static', filename='assets/images/Jobseek.png') }}"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -45,7 +45,7 @@
             </div>
         </div>
         <div>
-            <a class="footer-jobseek"href="#"><img class="footer-logo" src="static/assets/images/Jobseek-logo.png">JOBSEEK</a>
+            <a class="footer-jobseek"href="#"><img class="footer-logo" src="{{ url_for('static', filename='assets/images/Jobseek-logo.png') }}">JOBSEEK</a>
         </div>
         <div>To TOP</div>
     </footer>
