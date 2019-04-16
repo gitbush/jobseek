@@ -50,4 +50,8 @@ html, body {
   font-size: 1.3rem;
   letter-spacing: 1.5px;
 }
+
+.register-container {
+  text-align: -webkit-center;
+}
 /*# sourceMappingURL=main.css.map */
