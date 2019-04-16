@@ -6,3 +6,8 @@ class registerForm(FlaskForm):
     companyName = StringField('Company Name', validators=[DataRequired(), Length(min=3, max=20)])
     companyEmail = StringField('Company Email', validators=[DataRequired(), Email()])
     submit = SubmitField('Register')
+
+class loginForm(FlaskForm):
+    companyName = StringField('Company Name', validators=[DataRequired(), Length(min=3, max=20)])
+    companyEmail = StringField('Company Email', validators=[DataRequired(), Email()])
+    submit = SubmitField('Login')
