@@ -14,19 +14,45 @@
             {% endwith %}
             <div class="card-title"><h1>Employer Login</h1></div>
             <div class="card-body">
-                <form method="POST" action="">              
+                <!-- flask-wtf register form -->
+                <form method="POST" action="">
+                    <!-- CSRF token needed for flask-wtf security -->
+                    {{ form.csrf_token }}
                     <div class="form-group">
                         {{ form.companyName.label(class="form-control-label") }}
-                        {{ form.companyName(class="form-control form-control-lg") }}
+                        {% if form.companyName.errors %}
+                            {{ form.companyName(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.companyName.errors  %}
+                                <small>
+                                    {{ error }}
+                                </small>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.companyName(class="form-control form-control-lg") }}
+                        {% endif %}
                     </div>
                     <div class="form-group">
                         {{ form.companyEmail.label(class="form-control-label") }}
-                        {{ form.companyEmail(class="form-control form-control-lg") }}
+                            {% if form.companyEmail.errors %}
+                            {{ form.companyEmail(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.companyEmail.errors  %}
+                                <small>
+                                    {{ error }}
+                                </small>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.companyEmail(class="form-control form-control-lg") }}
+                        {% endif %}
                     </div>
                     <div class="form-group">
                         {{ form.submit(class="btn btn-outline-info") }}
                     </div>
                 </form>
+                <!-- end of flask-wtf register form -->
             </div>
         </div>
     </main>
