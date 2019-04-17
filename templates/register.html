@@ -11,6 +11,7 @@
                     {{ form.csrf_token }}           
                     <div class="form-group">
                         {{ form.companyName.label(class="form-control-label") }}
+                        <!-- if validation errors show invlaid feedback -->
                         {% if form.companyName.errors %}
                             {{ form.companyName(class="form-control form-control-lg is-invalid") }}
                             <div class="invalid-feedback">
@@ -20,12 +21,14 @@
                                     </small>
                                 {% endfor %}
                             </div>
+                        <!-- if no validation errors show no errors -->
                         {% else %}
                             {{ form.companyName(class="form-control form-control-lg") }}
                         {% endif %}
                     </div>
                     <div class="form-group">
                         {{ form.companyEmail.label(class="form-control-label") }}
+                        <!-- if validation errors show invlaid feedback -->
                         {% if form.companyEmail.errors %}
                             {{ form.companyEmail(class="form-control form-control-lg is-invalid") }}
                             <div class="invalid-feedback">
@@ -35,6 +38,7 @@
                                     </small>
                                 {% endfor %}
                             </div>
+                        <!-- if no validation errors show no errors -->
                         {% else %}
                             {{ form.companyEmail(class="form-control form-control-lg") }}
                         {% endif %}

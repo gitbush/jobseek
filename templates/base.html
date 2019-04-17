@@ -10,6 +10,7 @@
     <title>Jobseek</title>
 </head>
 <body>
+    <!-- **** common navbar **** -->
     <header class="container-fluid mp-none">
         <nav class="navbar navbar-expand-md navbar-light bg-light">
             <a href="#" class="navbar-brand"><img class="logo" src="{{ url_for('static', filename='assets/images/Jobseek.png') }}"></a>
@@ -32,9 +33,12 @@
             </div>
         </nav>
     </header>
+    <!-- **** end common navbar **** -->
+
     {% block content %}
     {% endblock %}
 
+    <!-- **** common footer **** -->
     <footer class="footer">
         <div>
             <h4>About</h4>
@@ -50,7 +54,7 @@
         </div>
         <div>To TOP</div>
     </footer>
-
+    <!-- **** end common footer **** -->
 
     </footer>
     <!-- **** Bootstrap and Jquery **** -->
