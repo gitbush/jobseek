@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, url_for, redirect
+from flask import Flask, render_template, url_for, redirect, flash
 from forms import registerForm, loginForm
 from flask_wtf.csrf import CSRFProtect
 
@@ -19,6 +19,7 @@ def home():
 def register():
     form = registerForm()
     if form.validate_on_submit():
+        flash(f'Account created for { form.companyName.data }!', 'success')
         return redirect(url_for('login'))
     
     return render_template('register.html', form=form)
