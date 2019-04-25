@@ -14,6 +14,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # instance of sqlalchemy 
 db = SQLAlchemy(app)
 # attach flask-wtf csrf token to app
+csrf = CSRFProtect()
 csrf.init_app(app)
 
 # create employer user db model 
@@ -51,7 +52,10 @@ def home():
 def register():
     form = registerForm()
     if form.validate_on_submit():
-        flash(f'Account created for { form.companyName.data }!', 'success')
+        emp = employer(companyName=form.companyName.data, email=form.companyEmail.data)
+        db.session.add(emp)
+        db.session.commit()
+        flash(f'Account created for { form.companyName.data }! You can now login.', 'success')
         return redirect(url_for('login'))
     
     return render_template('register.html', form=form)
