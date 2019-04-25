@@ -2,7 +2,7 @@ from flask import render_template, url_for, redirect, flash
 from jobseek import app, db
 from jobseek.forms import registerForm, loginForm
 from jobseek.models import employer, job_post
-from flask_login import login_user, current_user, logout_user
+from flask_login import login_user, current_user, logout_user, login_required
 
 @app.route('/')
 @app.route('/home')
@@ -45,5 +45,6 @@ def logout():
 
 
 @app.route("/job_post")
+@login_required
 def job_post():
     return render_template(('job_post.html'))

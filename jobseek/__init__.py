@@ -17,3 +17,6 @@ csrf = CSRFProtect()
 csrf.init_app(app)
 # login manager
 login_manager = LoginManager(app)
+# redirects to login if user tries to manually enter job_post via url
+login_manager.login_view = 'login'
+login_manager.login_message_category = 'info'
