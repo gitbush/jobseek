@@ -42,3 +42,8 @@ def login():
 def logout():
     logout_user()
     return redirect(url_for('home'))
+
+
+@app.route("/job_post")
+def job_post():
+    return render_template(('job_post.html'))
