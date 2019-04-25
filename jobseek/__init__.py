@@ -2,6 +2,7 @@ import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf.csrf import CSRFProtect
+from flask_login import LoginManager
 
 # instance of flask 
 app = Flask(__name__)
@@ -14,3 +15,5 @@ db = SQLAlchemy(app)
 # attach flask-wtf csrf token to app
 csrf = CSRFProtect()
 csrf.init_app(app)
+# login manager
+login_manager = LoginManager(app)

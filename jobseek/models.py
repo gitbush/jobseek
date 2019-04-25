@@ -1,8 +1,14 @@
-from jobseek import db
+from jobseek import db, login_manager
 from datetime import datetime
+from flask_login import UserMixin
+
+# using flask login manager to find user in db
+@login_manager.user_loader
+def user_loader(user_id):
+    return employer.query.get(user_id)
 
 # create employer user db model 
-class employer(db.Model):
+class employer(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     companyName = db.Column(db.String(80), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
