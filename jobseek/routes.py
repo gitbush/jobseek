@@ -2,7 +2,7 @@ from flask import render_template, url_for, redirect, flash
 from jobseek import app, db
 from jobseek.forms import registerForm, loginForm
 from jobseek.models import employer, job_post
-from flask_login import login_user
+from flask_login import login_user, current_user
 
 @app.route('/')
 @app.route('/home')
@@ -11,6 +11,8 @@ def home():
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
+    if current_user.is_authenticated:
+        return redirect('home')
     form = registerForm()
     if form.validate_on_submit():
         emp = employer(companyName=form.companyName.data, email=form.companyEmail.data)
@@ -24,6 +26,8 @@ def register():
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
+    if current_user.is_authenticated:
+        return redirect('home')
     form = loginForm()
     if form.validate_on_submit():
         emp = employer.query.filter_by(email=form.companyEmail.data).first()
