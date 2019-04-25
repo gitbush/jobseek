@@ -1,0 +1,16 @@
+import os
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+from flask_wtf.csrf import CSRFProtect
+
+# instance of flask 
+app = Flask(__name__)
+# evironment variables
+app.config['SECRET_KEY'] = os.urandom(32)
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('SQLALCHEMY_DATABASE_URI')
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# instance of sqlalchemy 
+db = SQLAlchemy(app)
+# attach flask-wtf csrf token to app
+csrf = CSRFProtect()
+csrf.init_app(app)
