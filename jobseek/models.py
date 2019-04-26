@@ -30,6 +30,7 @@ class job_post(db.Model):
     role_sum = db.Column(db.Text, nullable=False)
     resp = db.Column(db.Text, nullable=False)
     requirements = db.Column(db.Text, nullable=False)
+    how_to_apply = db.Column(db.Text, nullable=False)
     emp_id = db.Column(db.Integer, db.ForeignKey('employer.id'), nullable=False )
     # string to return in shell when job_post model called
     def __repr__(self):
