@@ -48,4 +48,6 @@ def logout():
 @login_required
 def create_job():
     form = jobForm()
+    if form.validate_on_submit():
+        return redirect(url_for('home'))
     return render_template(('create_job.html'), form=form)
