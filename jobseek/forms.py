@@ -29,6 +29,7 @@ class loginForm(FlaskForm):
 # wtforms create a job class
 class jobForm(FlaskForm):
     title = StringField('Job Title', validators=[DataRequired(), Length(min=5, max=30)])
+    sector = StringField('Sector', validators=[DataRequired(), Length(min=5, max=30)])
     jobType = SelectField('Type', choices=[('Full-time','Full-time' ), ('Part-time', 'Part-time'), ('Contract', 'Contract')])
     location = StringField('Location eg London, UK', validators=[DataRequired(), Length(min=5, max=60)])
     salary = IntegerField('Salary', validators=[DataRequired()])

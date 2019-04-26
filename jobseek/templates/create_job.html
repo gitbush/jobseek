@@ -29,6 +29,25 @@
                         {% endif %}
                     </div>
                     <!-- end title field -->
+                    <!-- sector field -->
+                    <div class="form-group">
+                        {{ form.sector.label(class="form-control-label") }}
+                        <!-- if validation errors show invlaid feedback -->
+                        {% if form.sector.errors %}
+                            {{ form.sector(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.sector.errors  %}
+                            <small>
+                                {{ error }}
+                            </small>
+                            {% endfor %}
+                        </div>
+                        <!-- if no validation errors show no errors -->
+                        {% else %}
+                            {{ form.sector(class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+                    <!-- end sector field -->
                     <!-- job type field -->
                     <div class="form-group">
                         {{ form.jobType.label(class="form-control-label") }}
