@@ -29,12 +29,12 @@ class loginForm(FlaskForm):
 # wtforms create a job class
 class jobForm(FlaskForm):
     title = StringField('Job Title', validators=[DataRequired(), Length(min=5, max=30)])
-    sector = StringField('Sector', validators=[DataRequired(), Length(min=5, max=30)])
+    sector = StringField('Sector', validators=[DataRequired(), Length(min=2, max=30)])
     jobType = SelectField('Type', choices=[('Full-time','Full-time' ), ('Part-time', 'Part-time'), ('Contract', 'Contract')])
     location = StringField('Location eg London, UK', validators=[DataRequired(), Length(min=5, max=60)])
     salary = IntegerField('Salary', validators=[DataRequired()])
-    summary = TextAreaField('Role Summary', validators=[DataRequired(), Length(min=100, max=300)])
-    responsibilities = TextAreaField('Skills/Responsibilities', validators=[DataRequired(), Length(min=100, max=400)])
-    requirements = TextAreaField('Requirements', validators=[DataRequired(), Length(min=100, max=400)])
-    how_to_apply = TextAreaField('How to Apply', validators=[DataRequired(), Length(min=20, max=200)])
+    summary = TextAreaField('Role Summary', validators=[DataRequired()])
+    responsibilities = TextAreaField('Skills/Responsibilities', validators=[DataRequired()])
+    requirements = TextAreaField('Requirements', validators=[DataRequired()])
+    how_to_apply = TextAreaField('How to Apply', validators=[DataRequired()])
     submit = SubmitField('Create Job!')
