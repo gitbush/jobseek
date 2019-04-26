@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,UAAU,CAAA;EACN,SAAS,EAAE,MAAM;CACpB;;AAED,AAAA,aAAa,CAAA;EACT,SAAS,EAAE,IAAI;CAClB",
+    "sources": [
+        "../scss/2-components/job_post_home.scss"
+    ],
+    "names": [],
+    "file": "job_post_home.css"
+}

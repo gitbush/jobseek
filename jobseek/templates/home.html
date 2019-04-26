@@ -4,21 +4,21 @@
         <!-- for every job post in db create job advert -->
         {% for job_post in job_posts %}
         <div class="row justify-content-center">
-            <section class="card col-12 col-md-10 col-lg-9">
+            <section class="card m-2 col-12 col-md-10 col-lg-9">
                 <div class="row">
-                    <img src="" class="col-4 rounded" alt="Comp Logo">
-                    <div class="col-5">
-                        <div class="row card-title"><h1>{{ job_post.title }}</h1></div>
-                        <div class="row card-subtitle"><h2>@{{ job_post.author.companyName }}</h2></div>       
+                    <img src="" class="col-4 rounded img-fluid" alt="Comp Logo">
+                    <div class="col-6">
+                        <div class="row m-1"><h1 class="job-title">{{ job_post.title }}</h1></div>
+                        <div class="row m-1"><h2 class="job-subtitle">@{{ job_post.author.companyName }}</h2></div>       
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-4">{{ job_post.location }}</div>
                     <div class="col-4">{{ job_post.jobType }}</div>
-                    <div class="col-4">{{ job_post.salary }}</div>
+                    <div class="col-4">£{{ job_post.salary }}</div>
                 </div>
                 <div class="row justify-content-center">
-                    <div class="col-10">{{ job_post.role_sum }}</div>
+                    <div class="col-10 role-sum"><p>{{ job_post.role_sum }}</p></div>
                 </div>
             </section>
         </div>  
