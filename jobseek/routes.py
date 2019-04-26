@@ -44,7 +44,7 @@ def logout():
     return redirect(url_for('home'))
 
 
-@app.route("/job_post")
+@app.route("/create_job")
 @login_required
-def job_post():
-    return render_template(('job_post.html'))
+def create_job():
+    return render_template(('create_job.html'))
