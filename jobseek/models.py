@@ -24,6 +24,7 @@ class job_post(db.Model):
     date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     title = db.Column(db.String(60), nullable=False)
     sector = db.Column(db.String(60), nullable=False)
+    jobType = db.Column(db.String(40), nullable=False)
     location = db.Column(db.String(60), nullable=False)
     salary = db.Column(db.Integer, nullable=False)
     role_sum = db.Column(db.Text, nullable=False)
