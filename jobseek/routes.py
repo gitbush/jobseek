@@ -49,5 +49,10 @@ def logout():
 def create_job():
     form = jobForm()
     if form.validate_on_submit():
+        new_job = job_post(title=form.title.data, sector=form.sector.data, jobType=form.jobType.data, location=form.location.data,
+                            salary=form.salary.data, role_sum=form.summary.data, resp=form.responsibilities.data, requirements=form.requirements.data,
+                            how_to_apply=form.how_to_apply.data, author=current_user)
+        db.session.add(new_job)
+        db.session.commit()
         return redirect(url_for('home'))
     return render_template(('create_job.html'), form=form)
