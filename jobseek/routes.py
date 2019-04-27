@@ -45,7 +45,7 @@ def logout():
     return redirect(url_for('home'))
 
 
-@app.route("/create_job", methods=['GET', 'POST'])
+@app.route("/create_job/new", methods=['GET', 'POST'])
 @login_required
 def create_job():
     form = jobForm()
