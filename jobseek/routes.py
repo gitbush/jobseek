@@ -58,7 +58,13 @@ def create_job():
         return redirect(url_for('home'))
     return render_template(('create_job.html'), form=form, title='Create Job Post')
 
-# route for editing a job post
+# # view a full job post
+@app.route("/job/<int:id>")
+def job(id):
+    job = job_post.query.get(id)
+    return render_template('job_post.html', job=job)
+
+# edit a job post
 @app.route("/create_job/edit", methods=['GET', 'POST'])
 @login_required
 def edit_post():

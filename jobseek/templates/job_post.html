@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+    <main class="container">
+        <div class="row justify-content-center">
+            <section class="card m-2 col-12 col-md-10 col-lg-8">
+                <div class="row">
+                    <img src="" class="col-4 col-md-3 rounded img-fluid" alt="Comp Logo">
+                    <div class="col-6 p-0">
+                        <div class="row m-1"><h1 class="job-title">{{ job.title }}</h1></div>
+                        <div class="row m-1"><h2 class="job-subtitle">@{{ job.author.companyName }}</h2></div>       
+                    </div>
+                    {% if job.author == current_user %}
+                        <div class="col-2">
+                            <div class="row">
+                                <a class="btn btn-secondary btn-sm m-1" href="">Edit</a>
+                            </div>
+                            <div class="row">
+                                <button type="button" class="btn btn-danger btn-sm m-1">Delete</button>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="row">
+                    <div class="col-4 job-indicator"><i class="fas fa-map-marker-alt m-1"></i>{{ job.location }}</div>
+                    <div class="col-4 job-indicator"><i class="fas fa-users m-1"></i>{{ job.jobType }}</div>
+                    <div class="col-4 job-indicator"><i class="fas fa-wallet m-1"></i>£{{ job.salary }}</div>
+                </div>
+                <div class="row p-1 justify-content-center">
+                    <div class="col-11 role-sum"><p>{{ job.role_sum }}</p></div>
+                </div>
+            </section>
+        </div>  
+    </main>
+{% endblock %}
