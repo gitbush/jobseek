@@ -9,7 +9,7 @@
         "../scss/1-base/_base-layout.scss",
         "../scss/2-components/_components-dir.scss",
         "../scss/2-components/_register.scss",
-        "../scss/2-components/_job_post_home.scss",
+        "../scss/2-components/_home_job_post.scss",
         "../scss/2-components/_job_post.scss"
     ],
     "names": [],
