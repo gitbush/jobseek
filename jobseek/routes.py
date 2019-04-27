@@ -65,8 +65,18 @@ def job(id):
     return render_template('job_post.html', job=job)
 
 # edit a job post
-@app.route("/create_job/edit", methods=['GET', 'POST'])
+@app.route("/job/<int:id>/edit", methods=['GET', 'POST'])
 @login_required
-def edit_post():
+def edit_post(id):
+    job = job_post.query.get(id)
     form = jobForm()
+    form.title.data = job.title
+    form.sector.data = job.sector
+    form.jobType.data = job.jobType
+    form.location.data = job.location
+    form.salary.data = job.salary
+    form.summary.data = job.role_sum
+    form.responsibilities.data = job.resp
+    form.requirements.data = job.requirements
+    form.how_to_apply.data = job.how_to_apply
     return render_template('create_job.html', form=form, title='Edit Job Post')
