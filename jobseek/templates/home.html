@@ -6,19 +6,14 @@
         <div class="row justify-content-center">
             <section class="card m-2 col-12 col-md-10 col-lg-8">
                 <div class="row">
-                    <img src="" class="col-4 col-md-3 rounded img-fluid" alt="Comp Logo">
-                    <div class="col-6 p-0">
+                    <img src="" class="col-3 col-md-3 rounded img-fluid" alt="Comp Logo">
+                    <div class="col-5 col-sm-6 p-0">
                         <div class="row m-1"><h1 class="job-title"><a href="{{ url_for('job', id=job_post.id) }}">{{ job_post.title }}</a></h1></div>
                         <div class="row m-1"><h2 class="job-subtitle">@{{ job_post.author.companyName }}</h2></div>       
                     </div>
                     {% if job_post.author == current_user %}
-                        <div class="col-2">
-                            <div class="row">
-                                <a class="btn btn-secondary btn-sm m-1" href="">Edit</a>
-                            </div>
-                            <div class="row">
-                                <button type="button" class="btn btn-danger btn-sm m-1">Delete</button>
-                            </div>
+                        <div class="col-3">
+                            <a href="" class="btn btn-sm btn-secondary mt-3"><i class="fas fa-cogs"></i>Edit</a>
                         </div>
                     {% endif %}
                 </div>
