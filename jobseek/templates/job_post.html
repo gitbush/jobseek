@@ -25,18 +25,19 @@
                     <div class="col-4 job-indicator"><i class="fas fa-users m-1"></i>{{ job.jobType }}</div>
                     <div class="col-4 job-indicator"><i class="fas fa-wallet m-1"></i>£{{ job.salary }}</div>
                 </div>
-                <h2>Job Description</h2>
-                <section class="row p-1 justify-content-center">
-                    <h3>Role Summary</h3>
-                    <div class="col-11 role-sum"><p>{{ job.role_sum }}</p></div>
+                <hr>
+                <h2 class="job-desc-heading">Job Description</h2>
+                <section class="row p-3">
+                    <h3 class="job-desc-sub-heading">Role Summary</h3>
+                    <div class="col-12 role-sum"><p>{{ job.role_sum }}</p></div>
                 </section>
-                <section class="row p-1 justify-content-center">
-                    <h3>Responsibiliites</h3>
-                    <div class="col-11 role-sum"><p>{{ job.resp }}</p></div>
+                <section class="row p-3">
+                    <h3 class="job-desc-sub-heading">Responsibiliites</h3>
+                    <div class="col-12 role-sum"><p>{{ job.resp }}</p></div>
                 </section>
-                <section class="row p-1 justify-content-center">
-                    <h3>Skils/Requirements</h3>
-                    <div class="col-11 role-sum"><p>{{ job.requirements }}</p></div>
+                <section class="row p-3">
+                    <h3 class="job-desc-sub-heading">Skils/Requirements</h3>
+                    <div class="col-12 role-sum"><p>{{ job.requirements }}</p></div>
                 </section>
             </section>
         </div>  
