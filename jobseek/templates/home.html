@@ -11,6 +11,16 @@
                         <div class="row m-1"><h1 class="job-title">{{ job_post.title }}</h1></div>
                         <div class="row m-1"><h2 class="job-subtitle">@{{ job_post.author.companyName }}</h2></div>       
                     </div>
+                    {% if job_post.author == current_user %}
+                        <div class="col-2">
+                            <div class="row">
+                                <a class="btn btn-secondary btn-sm m-1" href="">Edit</a>
+                            </div>
+                            <div class="row">
+                                <button type="button" class="btn btn-danger btn-sm m-1">Delete</button>
+                            </div>
+                        </div>
+                    {% endif %}
                 </div>
                 <div class="row">
                     <div class="col-4 job-indicator"><i class="fas fa-map-marker-alt m-1"></i>{{ job_post.location }}</div>
