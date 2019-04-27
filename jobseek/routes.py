@@ -1,4 +1,4 @@
-from flask import render_template, url_for, redirect, flash
+from flask import render_template, url_for, redirect, flash, request
 from jobseek import app, db
 from jobseek.forms import registerForm, loginForm, jobForm
 from jobseek.models import employer, job_post
@@ -68,15 +68,34 @@ def job(id):
 @app.route("/job/<int:id>/edit", methods=['GET', 'POST'])
 @login_required
 def edit_post(id):
+    ''' Populate form with corresponding job data if request method is GET
+        If POST commmit changes to db and redirect to updated job post
+    '''
     job = job_post.query.get(id)
     form = jobForm()
-    form.title.data = job.title
-    form.sector.data = job.sector
-    form.jobType.data = job.jobType
-    form.location.data = job.location
-    form.salary.data = job.salary
-    form.summary.data = job.role_sum
-    form.responsibilities.data = job.resp
-    form.requirements.data = job.requirements
-    form.how_to_apply.data = job.how_to_apply
+
+    if form.validate_on_submit():
+        job.title = form.title.data
+        job.sector = form.sector.data 
+        job.jobType = form.jobType.data  
+        job.location = form.location.data 
+        job.salary = form.salary.data 
+        job.role_sum = form.summary.data 
+        job.resp = form.responsibilities.data 
+        job.requirements = form.requirements.data 
+        job.how_to_apply = form.how_to_apply.data 
+        db.session.commit()
+        return redirect(url_for('job', id=job.id))
+
+    elif request.method == 'GET':
+        form.title.data = job.title
+        form.sector.data = job.sector
+        form.jobType.data = job.jobType
+        form.location.data = job.location
+        form.salary.data = job.salary
+        form.summary.data = job.role_sum
+        form.responsibilities.data = job.resp
+        form.requirements.data = job.requirements
+        form.how_to_apply.data = job.how_to_apply        
+
     return render_template('create_job.html', form=form, title='Edit Job Post')
