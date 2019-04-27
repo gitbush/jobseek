@@ -57,3 +57,10 @@ def create_job():
         db.session.commit()
         return redirect(url_for('home'))
     return render_template(('create_job.html'), form=form)
+
+# route for editing a job post
+@app.route("/create_job/edit", methods=['GET', 'POST'])
+@login_required
+def edit_post():
+    form = jobForm()
+    return render_template('create_job.html', form=form)
