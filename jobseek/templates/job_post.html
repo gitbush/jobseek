@@ -63,7 +63,11 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Go Back</button>
-                    <button type="button" class="btn btn-primary">Confirm</button>
+                    <form action="{{ url_for('delete_post', id=job.id) }}" method="POST">
+                        <!-- flask-wtf csrf token for post request -->
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                        <input class="btn btn-danger" type="submit" value="Delete">
+                    </form>
                 </div>
             </div>
         </div>

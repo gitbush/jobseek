@@ -99,3 +99,12 @@ def edit_post(id):
         form.how_to_apply.data = job.how_to_apply        
 
     return render_template('create_job.html', form=form, title='Edit Job Post')
+
+# delete a job post
+@app.route("/job/<int:id>/delete", methods=['POST'])
+@login_required
+def delete_post(id):
+    job = job_post.query.get(id)
+    db.session.delete(job)
+    db.session.commit()
+    return redirect(url_for('home'))
