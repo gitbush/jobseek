@@ -30,7 +30,7 @@ class loginForm(FlaskForm):
 class jobForm(FlaskForm):
     title = StringField('Job Title', validators=[DataRequired()])
     sector = StringField('Sector', validators=[DataRequired()])
-    jobType = SelectField('Type', choices=[('Full-time','Full-time' ), ('Part-time', 'Part-time'), ('Contract', 'Contract')])
+    jobType = SelectField('Type', choices=[('Select', 'Select'), ('Full-time','Full-time' ), ('Part-time', 'Part-time'), ('Contract', 'Contract')], default=1)
     location = StringField('Location eg London, UK', validators=[DataRequired()])
     salary = IntegerField('Salary', validators=[DataRequired()])
     summary = TextAreaField('Role Summary', validators=[DataRequired()])
