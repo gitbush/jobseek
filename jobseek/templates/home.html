@@ -23,7 +23,7 @@
                     <div class="col-4 job-indicator"><i class="fas fa-wallet m-1"></i>£{{ job_post.salary }}</div>
                 </div>
                 <div class="row p-1 justify-content-center">
-                    <div class="col-11 role-info"><p>{{ job_post.role_sum }}</p></div>
+                    <div class="col-11 role-info"><p>{{ job_post.role_sum|safe }}</p></div>
                 </div>
             </section>
         </div>  
