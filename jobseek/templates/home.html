@@ -7,9 +7,11 @@
             <section class="card m-2 col-11 col-md-10 col-lg-8">
                 <div class="row">
                     <img src="" class="col-3 rounded img-fluid" alt="Comp Logo">
-                    <div class="col-5 col-sm-6 p-0">
+                    <div class="col-6 col-sm-6 p-0">
                         <div class="row m-1"><h1 class="job-title"><a href="{{ url_for('job', id=job_post.id) }}">{{ job_post.title }}</a></h1></div>
-                        <div class="row m-1"><h2 class="job-subtitle">@{{ job_post.author.companyName }}</h2></div>       
+                        <div class="row m-1">
+                            <h2 class="job-subtitle">@{{ job_post.author.companyName }}</h2><small>&nbsp;on&nbsp;{{ job_post.date_posted.strftime('%m/%d/%y') }}</small> 
+                        </div>       
                     </div>
                     {% if job_post.author == current_user %}
                         <div class="col-3">

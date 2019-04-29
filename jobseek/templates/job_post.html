@@ -7,7 +7,7 @@
                     <img src="" class="col-3 rounded img-fluid" alt="Comp Logo">
                     <div class="col-5 col-sm-6 p-0">
                         <div class="row m-1"><h1 class="job-title">{{ job.title }}</h1></div>
-                        <div class="row m-1"><h2 class="job-subtitle">@{{ job.author.companyName }}</h2></div>       
+                        <div class="row m-1"><h2 class="job-subtitle">@{{ job.author.companyName }}</h2><small>&nbsp;on&nbsp;{{ job.date_posted.strftime('%m/%d/%y') }}</small> </div>       
                     </div>
                     {% if job.author == current_user %}
                         <div class="col-2 mt-2">
