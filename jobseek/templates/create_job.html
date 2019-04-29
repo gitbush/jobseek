@@ -110,7 +110,7 @@
                         {{ form.summary.label(class="form-control-label") }}
                         <!-- if validation errors show invlaid feedback -->
                         {% if form.summary.errors %}
-                            {{ form.summary(class="form-control form-control-lg is-invalid") }}
+                            {{ form.summary(class="form-control form-control-lg is-invalid editor") }}
                         <div class="invalid-feedback">
                             {% for error in form.summary.errors  %}
                             <small>
@@ -129,7 +129,7 @@
                         {{ form.responsibilities.label(class="form-control-label") }}
                         <!-- if validation errors show invlaid feedback -->
                         {% if form.responsibilities.errors %}
-                            {{ form.responsibilities(class="form-control form-control-lg is-invalid") }}
+                            {{ form.responsibilities(class="form-control form-control-lg is-invalid editor") }}
                         <div class="invalid-feedback">
                             {% for error in form.responsibilities.errors  %}
                             <small>

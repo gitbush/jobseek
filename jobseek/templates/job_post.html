@@ -33,15 +33,15 @@
                 </section>
                 <section class="row p-3">
                     <h3 class="job-desc-sub-heading">Responsibiliites</h3>
-                    <div class="col-12 role-info"><p>{{ job.resp }}</p></div>
+                    <div class="col-12 role-info"><p>{{ job.resp|safe }}</p></div>
                 </section>
                 <section class="row p-3">
                     <h3 class="job-desc-sub-heading">Skils/Requirements</h3>
-                    <div class="col-12 role-info"><p>{{ job.requirements }}</p></div>
+                    <div class="col-12 role-info"><p>{{ job.requirements|safe }}</p></div>
                 </section>
                 <section class="row p-3">
                     <h3 class="job-desc-sub-heading">How to Apply?</h3>
-                    <div class="col-12 role-info"><p>{{ job.how_to_apply }}</p></div>
+                    <div class="col-12 role-info"><p>{{ job.how_to_apply|safe }}</p></div>
                 </section>
             </section>
         </div>  
