@@ -1,25 +1,30 @@
 {% extends 'base.html' %}
+{% from "_macros.html" import render_field %}
 {% block content %}
     <main class="container">
         <!--**** refine results section ****-->
         <div class="row justify-content-center">
             <div class="card col-11 col-md-10">
-                <div class="row refine">
-                    <h3 class="refine-heading">Refine results</h3>
-                </div>
-                <div class="row justify-content-center">
-                    <col-5 class="col-sm-2"></col-5>
-                    <col-5 class="col-sm-2"></col-5>
-                    <col-5 class="col-sm-2"></col-5>
-                    <col-5 class="col-sm-2"></col-5>
-                </div>
-                <div class="row refine">
-                    <h3 class="refine-heading">Order Results</h3>
-                </div>
-                <div class="row justify-content-center">
-                    <col-5 class="col-sm-2"></col-5>
-                    <col-5 class="col-sm-2"></col-5>
-                </div>
+                <form method="POST" action="">
+                    <!-- CSRF token needed for flask-wtf security -->
+                    {{ form.csrf_token }}
+                    <div class="row refine">
+                        <h3 class="refine-heading">Refine results</h3>
+                    </div>
+                    <div class="row justify-content-center">
+                        <col-5 class="col-sm-2">{{ render_field(form.jobType) }}</col-5>
+                        <col-5 class="col-sm-2">{{ render_field(form.salary) }}</col-5>
+                        <col-5 class="col-sm-2">{{ render_field(form.sector) }}</col-5>
+                        <col-5 class="col-sm-2">{{ render_field(form.location) }}</col-5>
+                    </div>
+                    <div class="row refine">
+                        <h3 class="refine-heading">Order Results</h3>
+                    </div>
+                    <div class="row justify-content-center">
+                        <col-5 class="col-sm-2"></col-5>
+                        <col-5 class="col-sm-2"></col-5>
+                    </div>
+                </form>
             </div>
         </div>
         <!--**** end of refine results section ****-->

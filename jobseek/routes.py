@@ -1,6 +1,6 @@
 from flask import render_template, url_for, redirect, flash, request
 from jobseek import app, db
-from jobseek.forms import registerForm, loginForm, jobForm
+from jobseek.forms import registerForm, loginForm, jobForm, refineForm
 from jobseek.models import employer, job_post
 from flask_login import login_user, current_user, logout_user, login_required
 
@@ -8,7 +8,8 @@ from flask_login import login_user, current_user, logout_user, login_required
 @app.route('/home')
 def home():
     job_posts = job_post.query.all()
-    return render_template('home.html', job_posts=job_posts)
+    form = refineForm()
+    return render_template('home.html', job_posts=job_posts, form=form)
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
