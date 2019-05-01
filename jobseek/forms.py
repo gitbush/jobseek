@@ -41,7 +41,7 @@ class jobForm(FlaskForm):
 
 # wtforms refine results form 
 class refineForm(FlaskForm):
-    jobType = SelectField(label='Job Type', choices=[('Type', 'Type')])
+    jobType = SelectField(label='Job Type', choices=[('Type', 'Type'), ('Part-time', 'Part-time'), ('Full-time', 'Full-time'), ('Contract', 'Contract')])
     sector = SelectField(label='Sector', choices=[('Sector', 'Sector')])
     salary = SelectField(label='Salary', choices=[('Salary', 'Salary')])
     location = SelectField(label='Location', choices=[('Location', 'Location')])

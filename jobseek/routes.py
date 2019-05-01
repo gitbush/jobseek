@@ -9,6 +9,10 @@ from flask_login import login_user, current_user, logout_user, login_required
 def home():
     job_posts = job_post.query.all()
     form = refineForm()
+    # return tuples with key, value pairs for choices
+    form.sector.choices = [(item.id, item.sector) for item in job_post.query.all()]
+    form.salary.choices = [(item.id, item.salary) for item in job_post.query.all()]
+    form.location.choices = [(item.id, item.location) for item in job_post.query.all()]
     return render_template('home.html', job_posts=job_posts, form=form)
 
 @app.route('/register', methods=['GET', 'POST'])
