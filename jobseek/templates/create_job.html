@@ -1,4 +1,5 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} 
+{% from "_macros.html" import render_field %}
 {% block content %}
     <main class="container form-container">
         <div class="card col-12 col-md-7 justify-content-center">
@@ -10,177 +11,17 @@
                 <form method="POST" action="">
                     <!-- CSRF token needed for flask-wtf security -->
                     {{ form.csrf_token }}
-                    <!-- title field -->
-                    <div class="form-group">
-                        {{ form.title.label(class="form-control-label") }}
-                        <!-- if validation errors show invlaid feedback -->
-                        {% if form.title.errors %}
-                            {{ form.title(class="form-control form-control-lg is-invalid") }}
-                        <div class="invalid-feedback">
-                            {% for error in form.title.errors  %}
-                            <small>
-                                {{ error }}
-                            </small>
-                            {% endfor %}
-                        </div>
-                        <!-- if no validation errors show no errors -->
-                        {% else %}
-                            {{ form.title(class="form-control form-control-lg") }}
-                        {% endif %}
-                    </div>
-                    <!-- end title field -->
-                    <!-- sector field -->
-                    <div class="form-group">
-                        {{ form.sector.label(class="form-control-label") }}
-                        <!-- if validation errors show invlaid feedback -->
-                        {% if form.sector.errors %}
-                            {{ form.sector(class="form-control form-control-lg is-invalid") }}
-                        <div class="invalid-feedback">
-                            {% for error in form.sector.errors  %}
-                            <small>
-                                {{ error }}
-                            </small>
-                            {% endfor %}
-                        </div>
-                        <!-- if no validation errors show no errors -->
-                        {% else %}
-                            {{ form.sector(class="form-control form-control-lg") }}
-                        {% endif %}
-                    </div>
-                    <!-- end sector field -->
-                    <!-- job type field -->
-                    <div class="form-group">
-                        {{ form.jobType.label(class="form-control-label") }}
-                        <!-- if validation errors show invlaid feedback -->
-                        {% if form.jobType.errors %}
-                            {{ form.jobType(class="form-control form-control-lg is-invalid") }}
-                        <div class="invalid-feedback">
-                            {% for error in form.jobType.errors  %}
-                            <small>
-                                {{ error }}
-                            </small>
-                            {% endfor %}
-                        </div>
-                        <!-- if no validation errors show no errors -->
-                        {% else %}
-                            {{ form.jobType(class="form-control form-control-lg") }}
-                        {% endif %}
-                    </div>
-                    <!-- end job type field -->
-                    <!-- location field -->
-                    <div class="form-group">
-                        {{ form.location.label(class="form-control-label") }}
-                        <!-- if validation errors show invlaid feedback -->
-                        {% if form.location.errors %}
-                            {{ form.location(class="form-control form-control-lg is-invalid") }}
-                        <div class="invalid-feedback">
-                            {% for error in form.location.errors  %}
-                            <small>
-                                {{ error }}
-                            </small>
-                            {% endfor %}
-                        </div>
-                        <!-- if no validation errors show no errors -->
-                        {% else %}
-                            {{ form.location(class="form-control form-control-lg") }}
-                        {% endif %}
-                    </div>
-                    <!-- end location field -->
-                    <!-- salary field -->
-                    <div class="form-group">
-                        {{ form.salary.label(class="form-control-label") }}
-                        <!-- if validation errors show invlaid feedback -->
-                        {% if form.salary.errors %}
-                            {{ form.salary(class="form-control form-control-lg is-invalid") }}
-                        <div class="invalid-feedback">
-                            {% for error in form.salary.errors  %}
-                            <small>
-                                {{ error }}
-                            </small>
-                            {% endfor %}
-                        </div>
-                        <!-- if no validation errors show no errors -->
-                        {% else %}
-                            {{ form.salary(class="form-control form-control-lg") }}
-                        {% endif %}
-                    </div>
-                    <!-- end salary field -->
-                    <!-- summary field -->
-                    <div class="form-group">
-                        {{ form.summary.label(class="form-control-label") }}
-                        <!-- if validation errors show invlaid feedback -->
-                        {% if form.summary.errors %}
-                            {{ form.summary(class="form-control form-control-lg is-invalid editor") }}
-                        <div class="invalid-feedback">
-                            {% for error in form.summary.errors  %}
-                            <small>
-                                {{ error }}
-                            </small>
-                            {% endfor %}
-                        </div>
-                        <!-- if no validation errors show no errors -->
-                        {% else %}
-                            {{ form.summary(class="form-control form-control-lg") }}
-                        {% endif %}
-                    </div>
-                    <!-- end summary field -->
-                    <!-- responsibilities field -->
-                    <div class="form-group">
-                        {{ form.responsibilities.label(class="form-control-label") }}
-                        <!-- if validation errors show invlaid feedback -->
-                        {% if form.responsibilities.errors %}
-                            {{ form.responsibilities(class="form-control form-control-lg is-invalid editor") }}
-                        <div class="invalid-feedback">
-                            {% for error in form.responsibilities.errors  %}
-                            <small>
-                                {{ error }}
-                            </small>
-                            {% endfor %}
-                        </div>
-                        <!-- if no validation errors show no errors -->
-                        {% else %}
-                            {{ form.responsibilities(class="form-control form-control-lg") }}
-                        {% endif %}
-                    </div>
-                    <!-- end responsibilities field -->
-                    <!-- requirements field -->
-                    <div class="form-group">
-                        {{ form.requirements.label(class="form-control-label") }}
-                        <!-- if validation errors show invlaid feedback -->
-                        {% if form.requirements.errors %}
-                            {{ form.requirements(class="form-control form-control-lg is-invalid") }}
-                        <div class="invalid-feedback">
-                            {% for error in form.requirements.errors  %}
-                            <small>
-                                {{ error }}
-                            </small>
-                            {% endfor %}
-                        </div>
-                        <!-- if no validation errors show no errors -->
-                        {% else %}
-                            {{ form.requirements(class="form-control form-control-lg") }}
-                        {% endif %}
-                    </div>
-                    <!-- end requirements field -->
-                    <!-- how to apply field -->
-                    <div class="form-group">
-                        {{ form.how_to_apply.label(class="form-control-label") }}
-                        <!-- if validation errors show invlaid feedback -->
-                        {% if form.how_to_apply.errors %}
-                            {{ form.how_to_apply(class="form-control form-control-lg is-invalid") }}
-                        <div class="invalid-feedback">
-                            {% for error in form.how_to_apply.errors  %}
-                            <small>
-                                {{ error }}
-                            </small>
-                            {% endfor %}
-                        </div>
-                        <!-- if no validation errors show no errors -->
-                        {% else %}
-                            {{ form.how_to_apply(class="form-control form-control-lg") }}
-                        {% endif %}
-                    </div>
-                    <!-- end how to apply field -->
+                    <!-- form feilds from render_field macro -->
+                    {{ render_field(form.title) }}
+                    {{ render_field(form.sector) }}
+                    {{ render_field(form.jobType) }}
+                    {{ render_field(form.location) }}
+                    {{ render_field(form.salary) }}
+                    {{ render_field(form.summary) }}
+                    {{ render_field(form.responsibilities) }}
+                    {{ render_field(form.requirements) }}
+                    {{ render_field(form.how_to_apply) }}
+                    <!-- end form fields -->
                     <!-- submit field -->
                     <div class="form-group">
                         {{ form.submit(class="btn btn-outline-info") }}
@@ -191,5 +32,4 @@
             </div>
         </div>
     </main>
-
 {% endblock content %}

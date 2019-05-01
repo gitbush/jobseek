@@ -1,0 +1,20 @@
+<!--*** form helper ****-->
+{% macro render_field(field) %}
+<div class="form-group">
+    {{ field.label }}
+    <!-- if validation errors show invlaid feedback -->
+    {% if field.errors %}
+        {{ field(class="form-control form-control-lg is-invalid") }}
+        <div class="invalid-feedback">
+            {% for error in field.errors %}
+            <small>{{ error }}</small>
+            {% endfor %}
+        </div>
+    <!-- if no validation errors show no errors -->
+    {% else %}
+        {{ field(class="form-control form-control-lg") }}
+    {% endif %}
+</div>
+{% endmacro %}
+<!--*** end form helper ****-->
+
