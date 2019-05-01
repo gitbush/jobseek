@@ -72,6 +72,15 @@ html, body {
   color: red;
 }
 
+.refine {
+  color: white;
+  background-color: #07275e;
+}
+
+.refine-heading {
+  font-size: 1.3rem;
+}
+
 .job-title {
   font-size: 1.5rem;
   color: #1CA8D0;

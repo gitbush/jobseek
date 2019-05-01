@@ -1,7 +1,30 @@
 {% extends 'base.html' %}
 {% block content %}
     <main class="container">
-        <!-- for every job post in db create job advert -->
+        <!--**** refine results section ****-->
+        <div class="row justify-content-center">
+            <div class="card col-11 col-md-10">
+                <div class="row refine">
+                    <h3 class="refine-heading">Refine results</h3>
+                </div>
+                <div class="row justify-content-center">
+                    <col-5 class="col-sm-2"></col-5>
+                    <col-5 class="col-sm-2"></col-5>
+                    <col-5 class="col-sm-2"></col-5>
+                    <col-5 class="col-sm-2"></col-5>
+                </div>
+                <div class="row refine">
+                    <h3 class="refine-heading">Order Results</h3>
+                </div>
+                <div class="row justify-content-center">
+                    <col-5 class="col-sm-2"></col-5>
+                    <col-5 class="col-sm-2"></col-5>
+                </div>
+            </div>
+        </div>
+        <!--**** end of refine results section ****-->
+
+        <!--**** for every job post in db create job advert ****-->
         {% for job_post in job_posts %}
         <div class="row justify-content-center">
             <section class="card m-2 col-11 col-md-10 col-lg-8">
@@ -30,5 +53,6 @@
             </section>
         </div>  
         {% endfor %}
+        <!--**** end of for every job post in db create job advert ****-->
     </main>
 {% endblock %}
