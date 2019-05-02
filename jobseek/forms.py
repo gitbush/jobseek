@@ -48,4 +48,4 @@ class refineForm(FlaskForm):
     sector = QuerySelectField(label='Job Type', blank_text='Sector', allow_blank=True, query_factory=choice, get_label=lambda a: a.sector)
     salary = QuerySelectField(label='Job Type', blank_text='Salary', allow_blank=True, query_factory=choice, get_label=lambda a: a.salary)
     location = QuerySelectField(label='Job Type', blank_text='Location', allow_blank=True, query_factory=choice, get_label=lambda a: a.location)
-    submit = SubmitField('Update')
+    submit = SubmitField('Refine')

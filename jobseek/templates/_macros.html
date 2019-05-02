@@ -18,7 +18,7 @@
 {% endmacro %}
 
 {% macro no_label_render_field(field) %}
-<div class="form-group mb-2">
+<div class="form-group mb-0">
     <!-- if validation errors show invlaid feedback -->
     {% if field.errors %}
         {{ field(class="form-control form-control-sm is-invalid") }}

@@ -1,35 +1,19 @@
 {% extends 'base.html' %}
 {% from "_macros.html" import no_label_render_field %}
 {% block content %}
-    <main class="container">
+    <main class="container-fluid">
         <!--**** refine results section ****-->
-        <div class="row justify-content-center">
-            <div class="card col-11 col-md-10">
+        <div class="row">
+            <div class="card col-12">
                 <form method="POST" action="">
                     <!-- CSRF token needed for flask-wtf security -->
                     {{ form.csrf_token }}
-                    <div class="row refine">
-                        <h3 class="refine-heading">Refine results</h3>
-                    </div>
-                    <div class="row mt-2 justify-content-center">
-                        <div class="col-5 col-sm-3 col-md-2">{{ no_label_render_field(form.jobType) }}</div>
-                        <div class="col-5 col-sm-3 col-md-2">{{ no_label_render_field(form.salary) }}</div>
-                        <div class="col-5 col-sm-3 col-md-2">{{ no_label_render_field(form.sector) }}</div>
-                        <div class="col-5 col-sm-3 col-md-2">{{ no_label_render_field(form.location) }}</div>
-                    </div>
-                    <div class="row justify-content-center">
-                        <!-- submit field -->
-                        <div class="form-group">
-                            {{ form.submit(class="btn btn-outline-info") }}
-                        </div>
-                        <!-- end submit field -->
-                    </div>
-                    <div class="row refine">
-                        <h3 class="refine-heading">Order Results</h3>
-                    </div>
-                    <div class="row justify-content-center">
-                        <col-5 class="col-sm-2"></col-5>
-                        <col-5 class="col-sm-2"></col-5>
+                    <div class="row refine justify-content-center p-1">
+                        <div class="col-5 col-sm-2 p-1 my-auto">{{ no_label_render_field(form.jobType) }}</div>
+                        <div class="col-5 col-sm-2 p-1 my-auto">{{ no_label_render_field(form.salary) }}</div>
+                        <div class="col-5 col-sm-2 p-1 my-auto">{{ no_label_render_field(form.sector) }}</div>
+                        <div class="col-5 col-sm-2 p-1 my-auto">{{ no_label_render_field(form.location) }}</div>
+                        <div class="col-3 col-sm-1 p-1 my-auto text-center">{{ form.submit(class="btn btn-refine") }}</div>
                     </div>
                 </form>
             </div>
