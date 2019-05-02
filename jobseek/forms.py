@@ -1,5 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, SelectField, IntegerField, TextAreaField
+from wtforms.ext.sqlalchemy.fields import QuerySelectField
 from wtforms.validators import DataRequired, Length, Email, ValidationError
 from jobseek.models import employer, job_post
 
@@ -39,10 +40,12 @@ class jobForm(FlaskForm):
     how_to_apply = TextAreaField('How to Apply', validators=[DataRequired()])
     submit = SubmitField('Create Job!')
 
-# wtforms refine results form 
+def choice():
+    return job_post.query
+
 class refineForm(FlaskForm):
-    jobType = SelectField(label='Job Type', choices=[('Type', 'Type'), ('Part-time', 'Part-time'), ('Full-time', 'Full-time'), ('Contract', 'Contract')])
-    sector = SelectField(label='Sector', choices=[('Sector', 'Sector')])
-    salary = SelectField(label='Salary', choices=[('Salary', 'Salary')])
-    location = SelectField(label='Location', choices=[('Location', 'Location')])
+    jobType = QuerySelectField(label='Job Type', blank_text='Select', allow_blank=True, query_factory=choice, get_label=lambda a: a.jobType)
+    sector = QuerySelectField(label='Job Type', blank_text='Select', allow_blank=True, query_factory=choice, get_label=lambda a: a.sector)
+    salary = QuerySelectField(label='Job Type', blank_text='Select', allow_blank=True, query_factory=choice, get_label=lambda a: a.salary)
+    location = QuerySelectField(label='Job Type', blank_text='Select', allow_blank=True, query_factory=choice, get_label=lambda a: a.location)
     submit = SubmitField('Update')

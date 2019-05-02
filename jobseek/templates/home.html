@@ -12,10 +12,17 @@
                         <h3 class="refine-heading">Refine results</h3>
                     </div>
                     <div class="row justify-content-center">
-                        <col-5 class="col-sm-2">{{ render_field(form.jobType) }}</col-5>
-                        <col-5 class="col-sm-2">{{ render_field(form.salary) }}</col-5>
-                        <col-5 class="col-sm-2">{{ render_field(form.sector) }}</col-5>
-                        <col-5 class="col-sm-2">{{ render_field(form.location) }}</col-5>
+                        <div class="col-sm-2">{{ render_field(form.jobType) }}</div>
+                        <div class="col-sm-2">{{ render_field(form.salary) }}</div>
+                        <div class="col-sm-2">{{ render_field(form.sector) }}</div>
+                        <div class="col-sm-2">{{ render_field(form.location) }}</div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <!-- submit field -->
+                        <div class="form-group">
+                            {{ form.submit(class="btn btn-outline-info") }}
+                        </div>
+                        <!-- end submit field -->
                     </div>
                     <div class="row refine">
                         <h3 class="refine-heading">Order Results</h3>

@@ -3,9 +3,11 @@ from jobseek import app, db
 from jobseek.forms import registerForm, loginForm, jobForm, refineForm
 from jobseek.models import employer, job_post
 from flask_login import login_user, current_user, logout_user, login_required
+from sqlalchemy import or_, and_
+
 
 @app.route('/')
-@app.route('/home')
+@app.route('/home', methods=['GET', 'POST'])
 def home():
     job_posts = job_post.query.all()
     form = refineForm()
@@ -13,6 +15,34 @@ def home():
     form.sector.choices = [(item.id, item.sector) for item in job_post.query.all()]
     form.salary.choices = [(item.id, item.salary) for item in job_post.query.all()]
     form.location.choices = [(item.id, item.location) for item in job_post.query.all()]
+    if form.validate_on_submit():
+        # form handling of none selected 
+        if form.jobType.data == None:
+            jobType = job_post.jobType
+        else:
+            jobType = form.jobType.data.jobType
+
+        if form.sector.data == None:
+            sector = job_post.sector
+        else:
+            sector = form.sector.data.sector
+
+        if form.salary.data == None:
+            salary = job_post.salary
+        else:
+            salary = form.salary.data.salary
+            
+        if form.location.data == None:
+            location = job_post.location
+        else:
+            location = form.location.data.location
+        
+        job_posts = job_post.query.filter(and_(job_post.jobType == jobType,
+                                                job_post.sector == sector,
+                                                job_post.salary == salary,
+                                                job_post.location == location)).all()
+
+
     return render_template('home.html', job_posts=job_posts, form=form)
 
 @app.route('/register', methods=['GET', 'POST'])
