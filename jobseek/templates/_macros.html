@@ -4,7 +4,7 @@
     {{ field.label }}
     <!-- if validation errors show invlaid feedback -->
     {% if field.errors %}
-        {{ field(class="form-control form-control-lg is-invalid") }}
+        {{ field(class="form-control form-control-sm is-invalid") }}
         <div class="invalid-feedback">
             {% for error in field.errors %}
             <small>{{ error }}</small>
@@ -12,7 +12,24 @@
         </div>
     <!-- if no validation errors show no errors -->
     {% else %}
-        {{ field(class="form-control form-control-lg") }}
+        {{ field(class="form-control form-control-sm") }}
+    {% endif %}
+</div>
+{% endmacro %}
+
+{% macro no_label_render_field(field) %}
+<div class="form-group mb-2">
+    <!-- if validation errors show invlaid feedback -->
+    {% if field.errors %}
+        {{ field(class="form-control form-control-sm is-invalid") }}
+        <div class="invalid-feedback">
+            {% for error in field.errors %}
+            <small>{{ error }}</small>
+            {% endfor %}
+        </div>
+    <!-- if no validation errors show no errors -->
+    {% else %}
+        {{ field(class="form-control form-control-sm") }}
     {% endif %}
 </div>
 {% endmacro %}

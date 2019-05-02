@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% from "_macros.html" import render_field %}
+{% from "_macros.html" import no_label_render_field %}
 {% block content %}
     <main class="container">
         <!--**** refine results section ****-->
@@ -11,11 +11,11 @@
                     <div class="row refine">
                         <h3 class="refine-heading">Refine results</h3>
                     </div>
-                    <div class="row justify-content-center">
-                        <div class="col-sm-2">{{ render_field(form.jobType) }}</div>
-                        <div class="col-sm-2">{{ render_field(form.salary) }}</div>
-                        <div class="col-sm-2">{{ render_field(form.sector) }}</div>
-                        <div class="col-sm-2">{{ render_field(form.location) }}</div>
+                    <div class="row mt-2 justify-content-center">
+                        <div class="col-5 col-sm-3 col-md-2">{{ no_label_render_field(form.jobType) }}</div>
+                        <div class="col-5 col-sm-3 col-md-2">{{ no_label_render_field(form.salary) }}</div>
+                        <div class="col-5 col-sm-3 col-md-2">{{ no_label_render_field(form.sector) }}</div>
+                        <div class="col-5 col-sm-3 col-md-2">{{ no_label_render_field(form.location) }}</div>
                     </div>
                     <div class="row justify-content-center">
                         <!-- submit field -->
