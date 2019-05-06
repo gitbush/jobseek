@@ -6,9 +6,8 @@ from flask_login import login_user, current_user, logout_user, login_required
 from sqlalchemy import or_, and_
 
 
-@app.route('/')
-@app.route('/home', methods=['GET', 'POST'])
-def home():
+@app.route('/', methods=['GET', 'POST'])
+def index():
     job_posts = job_post.query.order_by(job_post.date_posted.desc()).all()
     form = refineForm()
     if form.validate_on_submit():
@@ -59,13 +58,13 @@ def register():
 @app.route("/login", methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
-        return redirect(url_for('home'))
+        return redirect(url_for('index'))
     form = loginForm()
     if form.validate_on_submit():
         emp = employer.query.filter_by(email=form.companyEmail.data).first()
         if emp:
             login_user(emp)
-            return redirect(url_for('home'))
+            return redirect(url_for('index'))
         else:
             flash(f'Login unsuccessful. Please check company name and email', 'danger')
     return render_template('login.html', form=form)
@@ -73,7 +72,7 @@ def login():
 @app.route("/logout")
 def logout():
     logout_user()
-    return redirect(url_for('home'))
+    return redirect(url_for('index'))
 
 
 @app.route("/create_job/new", methods=['GET', 'POST'])
@@ -86,7 +85,7 @@ def create_job():
                             how_to_apply=form.how_to_apply.data, author=current_user)
         db.session.add(new_job)
         db.session.commit()
-        return redirect(url_for('home'))
+        return redirect(url_for('index'))
     return render_template(('create_job.html'), form=form, title='Create Job Post')
 
 # # view a full job post
@@ -138,4 +137,4 @@ def delete_post(id):
     job = job_post.query.get(id)
     db.session.delete(job)
     db.session.commit()
-    return redirect(url_for('home'))
+    return redirect(url_for('index'))
