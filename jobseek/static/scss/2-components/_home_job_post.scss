@@ -6,6 +6,7 @@
     background-position: 55% 60%; /* Center the image */
     // // background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover; /* Resize the background image to cover the entire container */
+    border-radius: 0;
 }
 
 .home-jumbotron::before{
@@ -55,4 +56,8 @@
 .job-indicator{
     text-align: center;
     font-size: .9rem;
+}
+
+.job-card{
+    border: none;
 }

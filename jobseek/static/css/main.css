@@ -90,6 +90,7 @@ html, body {
   /* Center the image */
   background-size: cover;
   /* Resize the background image to cover the entire container */
+  border-radius: 0;
 }
 
 .home-jumbotron::before {
@@ -138,6 +139,10 @@ html, body {
 .job-indicator {
   text-align: center;
   font-size: .9rem;
+}
+
+.job-card {
+  border: none;
 }
 
 .job-desc-heading {
