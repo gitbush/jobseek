@@ -1,5 +1,13 @@
 {% extends 'base.html' %}
 {% from "_macros.html" import no_label_render_field %}
+{% block header_image %}
+    <section class="header-bg row justify-content-center jumbotron jumbotron-fluid">
+        <div class="col-11 col-sm-10 col-md-7 text-center hero-message">
+            <h1>Where apportunities are found</h1>
+        </div>
+    </section>
+{% endblock header_image %}
+
 {% block content %}
     <main class="container-fluid">
         <!--**** refine results section ****-->

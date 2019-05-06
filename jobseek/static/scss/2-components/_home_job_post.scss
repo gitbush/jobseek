@@ -1,3 +1,28 @@
+.jumbotron{
+    background-image: url('/static/assets/images/banner-career.jpg');
+    height: 36vmax;
+    padding: 0px;
+    margin: 0px;
+    background-position: 55% 60%; /* Center the image */
+    // // background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+.header-bg::before{
+    background-color: black;
+    content: "";
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    opacity: 0.4;
+}
+
+.hero-message{
+    position: absolute;
+    top: 20%;
+    
+}
+
 .refine{
     color: white;
     background-color: #07275e;
