@@ -2,34 +2,36 @@
 {% from "_macros.html" import render_field %}
 
 {% block content %}
-    <main class="container form-container">
-        <div class="card col-12 col-md-7 col-lg-5 justify-content-center">
-            {% with messages = get_flashed_messages(with_categories=true) %}
-                {% if messages %}
-                    {% for category, message in messages %}
-                        <div class="alert alert-{{ category }}">
-                            {{ message }}
+    <main class="container-fluid form-container register-jumbotron">
+        <div class="row justify-content-center h-100">
+            <div class="card col-10 col-sm-7 col-lg-5 my-auto p-4">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ category }}">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <div class="card-title"><h1>Employer Login</h1></div>
+                <div class="card-body">
+                    <!-- flask-wtf register form -->
+                    <form method="POST" action="">
+                        <!-- CSRF token needed for flask-wtf security -->
+                        {{ form.csrf_token }}
+                        <!-- form feilds -->
+                        {{ render_field(form.companyName) }}
+                        {{ render_field(form.companyEmail) }}
+                        <!-- end form fields  -->
+                        <!-- submit feild -->
+                        <div class="form-group">
+                            {{ form.submit(class="btn btn-outline-info") }}
                         </div>
-                    {% endfor %}
-                {% endif %}
-            {% endwith %}
-            <div class="card-title"><h1>Employer Login</h1></div>
-            <div class="card-body">
-                <!-- flask-wtf register form -->
-                <form method="POST" action="">
-                    <!-- CSRF token needed for flask-wtf security -->
-                    {{ form.csrf_token }}
-                    <!-- form feilds -->
-                    {{ render_field(form.companyName) }}
-                    {{ render_field(form.companyEmail) }}
-                    <!-- end form fields  -->
-                    <!-- submit feild -->
-                    <div class="form-group">
-                        {{ form.submit(class="btn btn-outline-info") }}
-                    </div>
-                    <!-- end submit field -->
-                </form>
-                <!-- end of flask-wtf register form -->
+                        <!-- end submit field -->
+                    </form>
+                    <!-- end of flask-wtf register form -->
+                </div>
             </div>
         </div>
     </main>
