@@ -9,12 +9,8 @@ from sqlalchemy import or_, and_
 @app.route('/')
 @app.route('/home', methods=['GET', 'POST'])
 def home():
-    job_posts = job_post.query.all()
+    job_posts = job_post.query.order_by(job_post.date_posted.desc()).all()
     form = refineForm()
-    # return tuples with key, value pairs for choices
-    form.sector.choices = [(item.id, item.sector) for item in job_post.query.all()]
-    form.salary.choices = [(item.id, item.salary) for item in job_post.query.all()]
-    form.location.choices = [(item.id, item.location) for item in job_post.query.all()]
     if form.validate_on_submit():
         # form handling of none selected 
         if form.jobType.data == None:
@@ -40,7 +36,7 @@ def home():
         job_posts = job_post.query.filter(and_(job_post.jobType == jobType,
                                                 job_post.sector == sector,
                                                 job_post.salary == salary,
-                                                job_post.location == location)).all()
+                                                job_post.location == location)).order_by(job_post.date_posted.desc()).all()
 
 
     return render_template('home.html', job_posts=job_posts, form=form)
