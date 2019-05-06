@@ -72,7 +72,16 @@ html, body {
   color: red;
 }
 
-.jumbotron {
+.register-jumbotron {
+  background-image: url("/static/assets/images/Fotolia_172013830_M.jpg");
+  height: 90vh;
+  padding: 0px;
+  margin: 0px;
+  background-position: 55% 60%;
+  background-size: cover;
+}
+
+.home-jumbotron {
   background-image: url("/static/assets/images/banner-career.jpg");
   height: 36vmax;
   padding: 0px;
@@ -83,7 +92,7 @@ html, body {
   /* Resize the background image to cover the entire container */
 }
 
-.header-bg::before {
+.home-jumbotron::before {
   background-color: black;
   content: "";
   width: 100%;

@@ -1,4 +1,4 @@
-.jumbotron{
+.home-jumbotron{
     background-image: url('/static/assets/images/banner-career.jpg');
     height: 36vmax;
     padding: 0px;
@@ -8,7 +8,7 @@
     background-size: cover; /* Resize the background image to cover the entire container */
 }
 
-.header-bg::before{
+.home-jumbotron::before{
     background-color: black;
     content: "";
     width: 100%;
