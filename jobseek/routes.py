@@ -144,9 +144,9 @@ def edit_post(id):
 
     elif request.method == 'GET':
         form.title.data = job.title
-        form.sector.data = job.sector
+        form.sector.data = job.sector_ref.sector
         form.jobType.data = job.jobType
-        form.location.data = job.location
+        form.location.data = job.location_ref.city
         form.salary.data = job.salary
         form.summary.data = job.role_sum
         form.responsibilities.data = job.resp

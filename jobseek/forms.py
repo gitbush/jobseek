@@ -40,9 +40,9 @@ def choice():
 # wtforms create a job class
 class jobForm(FlaskForm):
     title = StringField('Job Title', validators=[DataRequired()])
-    sector = QuerySelectField('Sector', blank_text='(Please select)', allow_blank=True, query_factory=sector_choice, get_label=lambda a: a.sector)
+    sector = QuerySelectField('Sector', query_factory=sector_choice, get_label=lambda a: a.sector)
     jobType = SelectField('Job Type', choices=[('(Please select)', '(Please select)'), ('Full-time','Full-time' ), ('Part-time', 'Part-time'), ('Contract', 'Contract')], default=1)
-    location = QuerySelectField('Location', blank_text='(Please select)', allow_blank=True, query_factory=location_choice)
+    location = QuerySelectField('Location', query_factory=location_choice)
     salary = SelectField('Salary', choices=[('(Please select)', '(Please select)'), ('30000+','30000+' ), ('40000+', '40000+'), ('50000+', '50000+')], default=1)
     summary = TextAreaField('Role Summary', validators=[DataRequired()])
     responsibilities = TextAreaField('Skills/Responsibilities', validators=[DataRequired()])
