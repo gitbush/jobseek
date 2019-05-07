@@ -52,9 +52,9 @@ class jobForm(FlaskForm):
 
 class refineForm(FlaskForm):
     jobType = SelectField('Job Type')
-    sector = SelectField('Job Type')
+    sector = SelectField('Job Type', coerce=int)
     salary = SelectField('Salary')   
-    location = SelectField('Job Type')
+    location = SelectField('Job Type', coerce=int)
     submit = SubmitField('Refine')
 
 

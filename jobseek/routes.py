@@ -8,23 +8,23 @@ from sqlalchemy import or_, and_
 # choices for refineForm select fields
 # stopping duplicate values in select
 def choices():
-    salary_choices = [('Salary', 'Salary')]
-    sector_choices = [('Sector', 'Sector')]
+    salary_choices = [('salary', 'Salary')]
+    sector_choices = [(0, 'Sector')]
     jobType_choices = [('jobType', 'Job Type')]
-    location_choices = [('location', 'Location')]
+    location_choices = [(0, 'Location')]
     job_posts = job_post.query.all()
     for g in job_posts:
         if (g.salary, g.salary) not in salary_choices:
             salary_choices.append((g.salary, g.salary))
-        if (g.sector_ref.sector, g.sector_ref.sector ) not in sector_choices:
-            sector_choices.append((g.sector_ref.sector, g.sector_ref.sector))
+        if (g.sector_ref.id, g.sector_ref.sector ) not in sector_choices:
+            sector_choices.append((g.sector_ref.id, g.sector_ref.sector))
         if (g.jobType, g.jobType ) not in jobType_choices:
             jobType_choices.append((g.jobType, g.jobType))
-        if (g.location_ref.city, g.location_ref.city ) not in location_choices:
-            location_choices.append((g.location_ref.city, g.location_ref.city))
-
+        if (g.location_ref.id, g.location_ref.city ) not in location_choices:
+            location_choices.append((g.location_ref.id, g.location_ref.city))
     return salary_choices, sector_choices, jobType_choices, location_choices
-        
+
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
     job_posts = job_post.query.order_by(job_post.date_posted.desc()).all()
@@ -36,31 +36,33 @@ def index():
     form.location.choices = choices()[3]
     if form.validate_on_submit():
         # form handling of none selected 
-        if form.jobType.data == None:
+        if form.jobType.data == 'jobType':
             jobType = job_post.jobType
+           
         else:
             jobType = form.jobType.data
-
-        if form.sector.data == None:
-            sector = job_post.sector
+            
+        if form.sector.data == 0:
+            sector = job_post.sector_id
         else:
-            sector = form.sector.data.sector
+            sector = form.sector.data
 
-        if form.salary.data == None:
+        if form.salary.data == 'salary':
             salary = job_post.salary
         else:
             salary = form.salary.data
             
-        if form.location.data == None:
-            location = job_post.location
+        if form.location.data == 0:
+            location = job_post.location_id
         else:
-            location = form.location.data.location
+            location = form.location.data
 
         job_posts = job_post.query.filter(and_(job_post.jobType == jobType,
-                                                job_post.sector == sector,
-                                                job_post.salary == salary, 
-                                                job_post.location == location)).order_by(job_post.date_posted.desc()).all()
-    
+                                                job_post.sector_id == sector,
+                                                job_post.salary == salary,
+                                                job_post.location_id == location
+                                                )).order_by(job_post.date_posted.desc()).all()
+
     return render_template('home.html', job_posts=job_posts, form=form)
 
 @app.route('/register', methods=['GET', 'POST'])
