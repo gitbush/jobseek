@@ -40,6 +40,7 @@ class job_post(db.Model):
 class sector(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     sector = db.Column(db.String(60), nullable=False)
+    sector_backref = db.relationship('job_post', backref='sector_ref', lazy=True)
     def __repr__(self):
         return f"{self.sector}"
 
@@ -48,5 +49,6 @@ class location(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     city = db.Column(db.String(30), nullable=False)
     country = db.Column(db.String(10), nullable=False)
+    location_backref = db.relationship('job_post', backref='location_ref', lazy=True)
     def __repr__(self):
         return f"{self.city}"
