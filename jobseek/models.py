@@ -24,6 +24,7 @@ class job_post(db.Model):
     date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     title = db.Column(db.String(60), nullable=False)
     jobType = db.Column(db.String(40), nullable=False)
+    salary = db.Column(db.String(15), nullable=False)
     role_sum = db.Column(db.Text, nullable=False)
     resp = db.Column(db.Text, nullable=False)
     requirements = db.Column(db.Text, nullable=False)
@@ -40,7 +41,7 @@ class sector(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     sector = db.Column(db.String(60), nullable=False)
     def __repr__(self):
-        return f"Sector: {self.id}, {self.sector}"
+        return f"{self.sector}"
 
 # location db model to store location choice
 class location(db.Model):
@@ -48,4 +49,4 @@ class location(db.Model):
     city = db.Column(db.String(30), nullable=False)
     country = db.Column(db.String(10), nullable=False)
     def __repr__(self):
-        return f"{self.city}, {self.country}"
+        return f"{self.city}"
