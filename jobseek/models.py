@@ -23,16 +23,21 @@ class job_post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     title = db.Column(db.String(60), nullable=False)
-    sector = db.Column(db.String(60), nullable=False)
     jobType = db.Column(db.String(40), nullable=False)
     location = db.Column(db.String(60), nullable=False)
-    salary = db.Column(db.Integer, nullable=False)
     role_sum = db.Column(db.Text, nullable=False)
     resp = db.Column(db.Text, nullable=False)
     requirements = db.Column(db.Text, nullable=False)
     how_to_apply = db.Column(db.Text, nullable=False)
     emp_id = db.Column(db.Integer, db.ForeignKey('employer.id'), nullable=False )
+    sector_id = db.Column(db.Integer, db.ForeignKey('sector.id'), nullable=False )
     # string to return in shell when job_post model called
     def __repr__(self):
         return f"Job Post: {self.date_posted}, {self.title}"
+
+class sector(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    sector = db.Column(db.String(60), nullable=False)
+    def __repr__(self):
+        return f"Sector: {self.id}, {self.sector}"
 
