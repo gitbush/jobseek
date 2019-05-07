@@ -1,15 +1,39 @@
 from flask import render_template, url_for, redirect, flash, request
 from jobseek import app, db
 from jobseek.forms import registerForm, loginForm, jobForm, refineForm
-from jobseek.models import employer, job_post
+from jobseek.models import employer, job_post, location, sector
 from flask_login import login_user, current_user, logout_user, login_required
 from sqlalchemy import or_, and_
 
+# choices for refineForm select fields
+# stopping duplicate values in select
+def choices():
+    salary_choices = [('Salary', 'Salary')]
+    sector_choices = [('Sector', 'Sector')]
+    jobType_choices = [('jobType', 'Job Type')]
+    location_choices = [('location', 'Location')]
+    job_posts = job_post.query.all()
+    for g in job_posts:
+        if (g.salary, g.salary) not in salary_choices:
+            salary_choices.append((g.salary, g.salary))
+        if (g.sector_ref.sector, g.sector_ref.sector ) not in sector_choices:
+            sector_choices.append((g.sector_ref.sector, g.sector_ref.sector))
+        if (g.jobType, g.jobType ) not in jobType_choices:
+            jobType_choices.append((g.jobType, g.jobType))
+        if (g.location_ref.city, g.location_ref.city ) not in location_choices:
+            location_choices.append((g.location_ref.city, g.location_ref.city))
 
+    return salary_choices, sector_choices, jobType_choices, location_choices
+        
 @app.route('/', methods=['GET', 'POST'])
 def index():
     job_posts = job_post.query.order_by(job_post.date_posted.desc()).all()
     form = refineForm()
+    # declare choices from choices helper function
+    form.salary.choices = choices()[0]
+    form.sector.choices = choices()[1]
+    form.jobType.choices = choices()[2]
+    form.location.choices = choices()[3]
     if form.validate_on_submit():
         # form handling of none selected 
         if form.jobType.data == None:
@@ -31,13 +55,12 @@ def index():
             location = job_post.location
         else:
             location = form.location.data.location
-        
+
         job_posts = job_post.query.filter(and_(job_post.jobType == jobType,
                                                 job_post.sector == sector,
-                                                job_post.salary == salary,
+                                                job_post.salary == salary, 
                                                 job_post.location == location)).order_by(job_post.date_posted.desc()).all()
-
-
+    
     return render_template('home.html', job_posts=job_posts, form=form)
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -80,7 +103,7 @@ def logout():
 def create_job():
     form = jobForm()
     if form.validate_on_submit():
-        new_job = job_post(title=form.title.data, sector=form.sector.data, jobType=form.jobType.data, location=form.location.data,
+        new_job = job_post(title=form.title.data, sector_id=form.sector.data.id, jobType=form.jobType.data, location_id=form.location.data.id ,
                             salary=form.salary.data, role_sum=form.summary.data, resp=form.responsibilities.data, requirements=form.requirements.data,
                             how_to_apply=form.how_to_apply.data, author=current_user)
         db.session.add(new_job)

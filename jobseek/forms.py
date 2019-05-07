@@ -51,8 +51,11 @@ class jobForm(FlaskForm):
     submit = SubmitField('Create Job!')
 
 class refineForm(FlaskForm):
-    jobType = SelectField('Type', choices=[('Type', 'Type'), ('Full-time','Full-time' ), ('Part-time', 'Part-time'), ('Contract', 'Contract')], default=1)
-    sector = QuerySelectField(label='Job Type', blank_text='Sector', allow_blank=True, query_factory=choice)
-    salary = SelectField('Salary', choices=[('Salary', 'Salary'), ('<=39000','30000+' ), ('<=49000', '40000+'), ('<=59000', '50000+')], default=1)
-    location = QuerySelectField(label='Job Type', blank_text='Location', allow_blank=True, query_factory=choice)
+    jobType = SelectField('Job Type')
+    sector = SelectField('Job Type')
+    salary = SelectField('Salary')   
+    location = SelectField('Job Type')
     submit = SubmitField('Refine')
+
+
+
