@@ -31,25 +31,28 @@ class loginForm(FlaskForm):
 def location_choice():
     return location.query
 
+def sector_choice():
+    return sector.query
+
+def choice():
+    return job_post.query
+
 # wtforms create a job class
 class jobForm(FlaskForm):
     title = StringField('Job Title', validators=[DataRequired()])
-    sector = StringField('Sector (Please select)', validators=[DataRequired()])
-    jobType = SelectField('Type (Please select)', validators=[DataRequired()], choices=[('Select', 'Select'), ('Full-time','Full-time' ), ('Part-time', 'Part-time'), ('Contract', 'Contract')], default=1)
-    location = QuerySelectField('Location (Please select)', validators=[DataRequired()], blank_text='Location', allow_blank=True, query_factory=location_choice)
-    salary = SelectField('Salary (Please select)', validators=[DataRequired], choices=[('Salary', 'Salary'), ('30000+','30000+' ), ('40000+', '40000+'), ('50000+', '50000+')], default=1)
+    sector = QuerySelectField('Sector', blank_text='(Please select)', allow_blank=True, query_factory=sector_choice, get_label=lambda a: a.sector)
+    jobType = SelectField('Job Type', choices=[('(Please select)', '(Please select)'), ('Full-time','Full-time' ), ('Part-time', 'Part-time'), ('Contract', 'Contract')], default=1)
+    location = QuerySelectField('Location', blank_text='(Please select)', allow_blank=True, query_factory=location_choice)
+    salary = SelectField('Salary', choices=[('(Please select)', '(Please select)'), ('30000+','30000+' ), ('40000+', '40000+'), ('50000+', '50000+')], default=1)
     summary = TextAreaField('Role Summary', validators=[DataRequired()])
     responsibilities = TextAreaField('Skills/Responsibilities', validators=[DataRequired()])
     requirements = TextAreaField('Requirements', validators=[DataRequired()])
     how_to_apply = TextAreaField('How to Apply', validators=[DataRequired()])
     submit = SubmitField('Create Job!')
 
-def choice():
-    return job_post.query
-
 class refineForm(FlaskForm):
     jobType = SelectField('Type', choices=[('Type', 'Type'), ('Full-time','Full-time' ), ('Part-time', 'Part-time'), ('Contract', 'Contract')], default=1)
-    sector = QuerySelectField(label='Job Type', blank_text='Sector', allow_blank=True, query_factory=choice, get_label=lambda a: a.sector)
+    sector = QuerySelectField(label='Job Type', blank_text='Sector', allow_blank=True, query_factory=choice)
     salary = SelectField('Salary', choices=[('Salary', 'Salary'), ('<=39000','30000+' ), ('<=49000', '40000+'), ('<=59000', '50000+')], default=1)
-    location = QuerySelectField(label='Job Type', blank_text='Location', allow_blank=True, query_factory=choice, get_label=lambda a: a.location)
+    location = QuerySelectField(label='Job Type', blank_text='Location', allow_blank=True, query_factory=choice)
     submit = SubmitField('Refine')
