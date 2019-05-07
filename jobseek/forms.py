@@ -2,7 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, SelectField, IntegerField, TextAreaField
 from wtforms.ext.sqlalchemy.fields import QuerySelectField
 from wtforms.validators import DataRequired, Length, Email, ValidationError
-from jobseek.models import employer, job_post
+from jobseek.models import employer, job_post, location, sector
 
 # wtforms registration class
 class registerForm(FlaskForm):
@@ -27,13 +27,17 @@ class loginForm(FlaskForm):
     companyEmail = StringField('Company Email', validators=[DataRequired(), Email()])
     submit = SubmitField('Login')
 
+
+def location_choice():
+    return location.query
+
 # wtforms create a job class
 class jobForm(FlaskForm):
     title = StringField('Job Title', validators=[DataRequired()])
-    sector = StringField('Sector', validators=[DataRequired()])
-    jobType = SelectField('Type', choices=[('Select', 'Select'), ('Full-time','Full-time' ), ('Part-time', 'Part-time'), ('Contract', 'Contract')], default=1)
-    location = StringField('Location eg London, UK', validators=[DataRequired()])
-    salary = SelectField('Salary', validators=[DataRequired], choices=[('Salary', 'Salary'), ('30000+','30000+' ), ('40000+', '40000+'), ('50000+', '50000+')], default=1)
+    sector = StringField('Sector (Please select)', validators=[DataRequired()])
+    jobType = SelectField('Type (Please select)', validators=[DataRequired()], choices=[('Select', 'Select'), ('Full-time','Full-time' ), ('Part-time', 'Part-time'), ('Contract', 'Contract')], default=1)
+    location = QuerySelectField('Location (Please select)', validators=[DataRequired()], blank_text='Location', allow_blank=True, query_factory=location_choice)
+    salary = SelectField('Salary (Please select)', validators=[DataRequired], choices=[('Salary', 'Salary'), ('30000+','30000+' ), ('40000+', '40000+'), ('50000+', '50000+')], default=1)
     summary = TextAreaField('Role Summary', validators=[DataRequired()])
     responsibilities = TextAreaField('Skills/Responsibilities', validators=[DataRequired()])
     requirements = TextAreaField('Requirements', validators=[DataRequired()])

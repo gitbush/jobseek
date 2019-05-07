@@ -48,4 +48,4 @@ class location(db.Model):
     city = db.Column(db.String(30), nullable=False)
     country = db.Column(db.String(10), nullable=False)
     def __repr__(self):
-        return f"Sector: {self.city}, {self.country}"
+        return f"{self.city}, {self.country}"
