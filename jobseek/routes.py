@@ -15,7 +15,7 @@ def index():
         if form.jobType.data == None:
             jobType = job_post.jobType
         else:
-            jobType = form.jobType.data.jobType
+            jobType = form.jobType.data
 
         if form.sector.data == None:
             sector = job_post.sector
@@ -25,7 +25,7 @@ def index():
         if form.salary.data == None:
             salary = job_post.salary
         else:
-            salary = form.salary.data.salary
+            salary = form.salary.data
             
         if form.location.data == None:
             location = job_post.location

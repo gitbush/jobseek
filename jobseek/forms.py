@@ -33,7 +33,7 @@ class jobForm(FlaskForm):
     sector = StringField('Sector', validators=[DataRequired()])
     jobType = SelectField('Type', choices=[('Select', 'Select'), ('Full-time','Full-time' ), ('Part-time', 'Part-time'), ('Contract', 'Contract')], default=1)
     location = StringField('Location eg London, UK', validators=[DataRequired()])
-    salary = IntegerField('Salary', validators=[DataRequired()])
+    salary = SelectField('Salary', validators=[DataRequired], choices=[('Salary', 'Salary'), ('30000+','30000+' ), ('40000+', '40000+'), ('50000+', '50000+')], default=1)
     summary = TextAreaField('Role Summary', validators=[DataRequired()])
     responsibilities = TextAreaField('Skills/Responsibilities', validators=[DataRequired()])
     requirements = TextAreaField('Requirements', validators=[DataRequired()])
@@ -44,8 +44,8 @@ def choice():
     return job_post.query
 
 class refineForm(FlaskForm):
-    jobType = QuerySelectField(label='Job Type', blank_text='Job Type', allow_blank=True, query_factory=choice, get_label=lambda a: a.jobType)
+    jobType = SelectField('Type', choices=[('Type', 'Type'), ('Full-time','Full-time' ), ('Part-time', 'Part-time'), ('Contract', 'Contract')], default=1)
     sector = QuerySelectField(label='Job Type', blank_text='Sector', allow_blank=True, query_factory=choice, get_label=lambda a: a.sector)
-    salary = QuerySelectField(label='Job Type', blank_text='Salary', allow_blank=True, query_factory=choice, get_label=lambda a: a.salary)
+    salary = SelectField('Salary', choices=[('Salary', 'Salary'), ('<=39000','30000+' ), ('<=49000', '40000+'), ('<=59000', '50000+')], default=1)
     location = QuerySelectField(label='Job Type', blank_text='Location', allow_blank=True, query_factory=choice, get_label=lambda a: a.location)
     submit = SubmitField('Refine')
