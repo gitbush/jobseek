@@ -9,6 +9,10 @@ html, body {
 }
 
 /**** navbar ****/
+.navbar {
+  z-index: 99;
+}
+
 .navbar-collapse {
   text-align: center;
 }
@@ -106,7 +110,7 @@ html, body {
   position: absolute;
   top: 20%;
   color: white;
-  z-index: 99;
+  z-index: 98;
 }
 
 .refine {
