@@ -1,13 +1,14 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, SelectField, IntegerField, TextAreaField, BooleanField
 from wtforms.ext.sqlalchemy.fields import QuerySelectField
-from wtforms.validators import DataRequired, Length, Email, ValidationError
+from wtforms.validators import DataRequired, Length, Email, ValidationError 
 from jobseek.models import employer, job_post, location, sector
 
 # wtforms registration class
 class registerForm(FlaskForm):
     companyName = StringField('Company Name', validators=[DataRequired(), Length(min=3, max=30)])
     companyEmail = StringField('Company Email', validators=[DataRequired(), Email()])
+    logo = StringField('Profile Logo URL')
     submit = SubmitField('Register')
 
     # custom validation checking if a user has already signed up with company name and email

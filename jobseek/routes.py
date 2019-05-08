@@ -71,7 +71,11 @@ def register():
         return redirect('home')
     form = registerForm()
     if form.validate_on_submit():
-        emp = employer(companyName=form.companyName.data, email=form.companyEmail.data)
+        if form.logo.data == '':
+            emp = employer(companyName=form.companyName.data, email=form.companyEmail.data)
+        else:
+            emp = employer(companyName=form.companyName.data, email=form.companyEmail.data, logo_url=form.logo.data)
+        print(form.logo.data)
         db.session.add(emp)
         db.session.commit()
         flash(f'Account created for { form.companyName.data }! You can now login.', 'success')

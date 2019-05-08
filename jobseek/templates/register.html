@@ -8,12 +8,13 @@
                 <div class="card-title"><h1>Employer Register</h1></div>
                 <div class="card-body">
                     <!-- flask-wtf register form -->
-                    <form method="POST" action="">   
+                    <form method="POST" action="" enctype="multipart/form-data">   
                         <!-- CSRF token needed for flask-wtf security -->
                         {{ form.csrf_token }}  
                         <!-- form feilds -->
                         {{ render_field(form.companyName) }}
                         {{ render_field(form.companyEmail) }} 
+                        {{ render_field(form.logo) }} 
                         <!-- end form fields  -->
                         <!-- submit feild -->
                         <div class="form-group">

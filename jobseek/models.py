@@ -12,7 +12,7 @@ class employer(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     companyName = db.Column(db.String(80), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
-    image_file = db.Column(db.String(50), nullable=False, default='default.jpg')
+    logo_url = db.Column(db.String(150), nullable=False, default='http://job.pharmaglobiz.com/images/default-logo.png')
     job_posts = db.relationship('job_post', backref='author', lazy=True)
     # string to return in shell when employer model called
     def __repr__(self):
