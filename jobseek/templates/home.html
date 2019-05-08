@@ -74,11 +74,15 @@
         {% endfor %}
         <!--**** end of for every job post in db create job advert ****-->
         <div class="row justify-content-center">
-            {% for page_num in job_posts.iter_pages() %}
+            {% for page_num in job_posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
                 {% if page_num %}
-                <a class="btn btn-outline-info mb-2" href="{{ url_for('index', page=page_num) }}">{{ page_num }}</a>
+                    {% if job_posts.page == page_num %}
+                        <a class="btn btn-sm btn-info mb-2" href="{{ url_for('index', page=page_num) }}">{{ page_num }}</a>
+                    {% else %}
+                        <a class="btn btn-sm btn-outline-info mb-2" href="{{ url_for('index', page=page_num) }}">{{ page_num }}</a>
+                    {% endif %}
                 {% else %}
-                ...
+                 ... 
                 {% endif %}
             {% endfor %}
         </div>
