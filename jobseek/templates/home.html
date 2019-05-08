@@ -16,7 +16,7 @@
                 <form method="POST" action="#refine-form" id="refine-form">
                     <!-- CSRF token needed for flask-wtf security -->
                     {{ form.csrf_token }}
-                    <div class="row refine justify-content-center p-1">
+                    <div class="row refine justify-content-around justify-content-sm-center p-3 p-sm-1">
                         <div class="col-5 col-sm-2 p-1 my-auto">{{ no_label_render_field(form.jobType) }}</div>
                         <div class="col-5 col-sm-2 p-1 my-auto">{{ no_label_render_field(form.salary) }}</div>
                         <div class="col-5 col-sm-2 p-1 my-auto">{{ no_label_render_field(form.sector) }}</div>
