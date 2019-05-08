@@ -110,6 +110,7 @@ def create_job():
                             how_to_apply=form.how_to_apply.data, author=current_user)
         db.session.add(new_job)
         db.session.commit()
+        flash(f'Job post created by { new_job.author.companyName }!', 'success')
         return redirect(url_for('index'))
     return render_template(('create_job.html'), form=form, title='Create Job Post')
 
