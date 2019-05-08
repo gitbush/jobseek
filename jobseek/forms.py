@@ -6,7 +6,7 @@ from jobseek.models import employer, job_post, location, sector
 
 # wtforms registration class
 class registerForm(FlaskForm):
-    companyName = StringField('Company Name', validators=[DataRequired(), Length(min=3, max=20)])
+    companyName = StringField('Company Name', validators=[DataRequired(), Length(min=3, max=30)])
     companyEmail = StringField('Company Email', validators=[DataRequired(), Email()])
     submit = SubmitField('Register')
 
@@ -23,7 +23,7 @@ class registerForm(FlaskForm):
 
 # wtforms login class
 class loginForm(FlaskForm):
-    companyName = StringField('Company Name', validators=[DataRequired(), Length(min=3, max=20)])
+    companyName = StringField('Company Name', validators=[DataRequired(), Length(min=3, max=30)])
     companyEmail = StringField('Company Email', validators=[DataRequired(), Email()])
     remember = BooleanField('Remember Me')
     submit = SubmitField('Login')
@@ -44,7 +44,8 @@ class jobForm(FlaskForm):
     sector = QuerySelectField('Sector', query_factory=sector_choice, get_label=lambda a: a.sector)
     jobType = SelectField('Job Type', choices=[('(Please select)', '(Please select)'), ('Full-time','Full-time' ), ('Part-time', 'Part-time'), ('Contract', 'Contract')], default=1)
     location = QuerySelectField('Location', query_factory=location_choice)
-    salary = SelectField('Salary', choices=[('(Please select)', '(Please select)'), ('30000+','30000+' ), ('40000+', '40000+'), ('50000+', '50000+')], default=1)
+    salary = SelectField('Salary', choices=[('(Please select)', '(Please select)'), ('10000+','10000+' ), ('20000+','20000+' ), ('30000+','30000+' ),
+                                             ('40000+', '40000+'), ('50000+', '50000+')], default=1)
     summary = TextAreaField('Role Summary', validators=[DataRequired()])
     responsibilities = TextAreaField('Skills/Responsibilities', validators=[DataRequired()])
     requirements = TextAreaField('Requirements', validators=[DataRequired()])
