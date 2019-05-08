@@ -150,6 +150,18 @@ html, body {
   height: auto;
 }
 
+@media screen and (max-width: 767px) {
+  .rounded {
+    max-width: 100%;
+  }
+}
+
+@media screen and (min-width: 500px) and (max-width: 767px) {
+  .rounded {
+    max-width: 80%;
+  }
+}
+
 .job-desc-heading {
   font-size: 1.5rem;
 }

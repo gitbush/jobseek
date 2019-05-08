@@ -65,4 +65,10 @@
 .rounded{
     max-width: 60%;
     height: auto;
+    @include mobile-device{
+        max-width: 100%;
+    }
+    @include large-mobile-device{
+        max-width: 80%;
+    }
 }

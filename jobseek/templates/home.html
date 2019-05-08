@@ -46,8 +46,8 @@
         <div class="row justify-content-center">
             <section class="card m-2 col-11 col-md-10 col-lg-8">
                 <div class="row">
-                    <div class="col-3">
-                        <img src="{{ job_post.author.logo_url }}" class="col-3 rounded img-fluid" alt="Comp Logo">
+                    <div class="col-3 p-0 text-center">
+                        <img src="{{ job_post.author.logo_url }}" class="col-3 rounded img-fluid p-0" alt="Comp Logo">
                     </div>
                     <div class="col-6 col-sm-6 p-0">
                         <div class="row m-1"><h1 class="job-title"><a href="{{ url_for('job', id=job_post.id) }}">{{ job_post.title }}</a></h1></div>

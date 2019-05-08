@@ -1,0 +1,50 @@
+// All mixins/media queries        
+// media queries
+@mixin mobile-device{
+    @media screen and (max-width: $tablet-width - 1px){
+        @content;
+    }
+}
+
+@mixin large-mobile-device{
+    @media screen and (min-width: $mobile-width) and (max-width: $tablet-width - 1px){
+        @content;
+    }
+}
+
+
+@mixin tablet-device{
+    @media screen and (min-width: $tablet-width) and (max-width: $desktop-width - 1px){
+        @content;
+    }
+}
+
+@mixin all-desktop-devices{
+    @media screen and (min-width: $desktop-width){
+        @content;
+    }
+}
+
+@mixin desktop-device{
+    @media screen and (min-width: $desktop-width) and (max-width: $large-desktop-width){
+        @content;
+    }
+}
+
+@mixin large-desktop-device{
+    @media screen and (min-width: $large-desktop-width) and (max-width: $xlarge-desktop-width){
+        @content;
+    }
+}
+
+@mixin xlarge-desktop-device{
+    @media screen and (min-width: $xlarge-desktop-width){
+        @content;
+    }
+}
+
+@mixin fourK-device{
+    @media screen and (min-width: $fourK-width){
+        @content;
+    }
+}
