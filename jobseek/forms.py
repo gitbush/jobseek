@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, SelectField, IntegerField, TextAreaField
+from wtforms import StringField, SubmitField, SelectField, IntegerField, TextAreaField, BooleanField
 from wtforms.ext.sqlalchemy.fields import QuerySelectField
 from wtforms.validators import DataRequired, Length, Email, ValidationError
 from jobseek.models import employer, job_post, location, sector
@@ -25,6 +25,7 @@ class registerForm(FlaskForm):
 class loginForm(FlaskForm):
     companyName = StringField('Company Name', validators=[DataRequired(), Length(min=3, max=20)])
     companyEmail = StringField('Company Email', validators=[DataRequired(), Email()])
+    remember = BooleanField('Remember Me')
     submit = SubmitField('Login')
 
 

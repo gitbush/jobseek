@@ -88,7 +88,7 @@ def login():
     if form.validate_on_submit():
         emp = employer.query.filter_by(email=form.companyEmail.data).first()
         if emp:
-            login_user(emp)
+            login_user(emp, remember=form.remember.data)
             return redirect(url_for('index'))
         else:
             flash(f'Login unsuccessful. Please check company name and email', 'danger')
