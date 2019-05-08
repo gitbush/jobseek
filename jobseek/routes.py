@@ -27,7 +27,8 @@ def choices():
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    job_posts = job_post.query.order_by(job_post.date_posted.desc()).all()
+    page = request.args.get('page', 1, type=int)
+    job_posts = job_post.query.order_by(job_post.date_posted.desc()).paginate(page=page, per_page=1)
     form = refineForm()
     # declare choices from choices helper function
     form.salary.choices = choices()[0]
