@@ -44,9 +44,9 @@
         <!--**** for every job post in db create job advert ****-->
         {% for job_post in job_posts %}
         <div class="row justify-content-center">
-            <section class="card m-2 col-11 col-md-10 col-lg-8">
-                <div class="row">
-                    <div class="col-3 p-0 text-center">
+            <section class="card m-2 col-11 col-md-10 col-lg-8 p-0">
+                <div class="row p-2">
+                    <div class="col-3 col-sm-2 p-0 text-center">
                         <img src="{{ job_post.author.logo_url }}" class="col-3 rounded img-fluid p-0" alt="Comp Logo">
                     </div>
                     <div class="col-6 col-sm-6 p-0">
