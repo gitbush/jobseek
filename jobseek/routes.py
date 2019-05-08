@@ -163,4 +163,5 @@ def delete_post(id):
     job = job_post.query.get(id)
     db.session.delete(job)
     db.session.commit()
+    flash(f'Job post "{ job.title }" at "{job.author.companyName }" deleted."', 'success')
     return redirect(url_for('index'))
