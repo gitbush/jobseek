@@ -3,7 +3,7 @@
 {% block header_image %}
     <section class=" row justify-content-center jumbotron home-jumbotron">
         <div class="col-11 col-sm-10 col-md-7 text-center hero-message">
-            <h1>Where apportunities are found</h1>
+            <h1 class="hero-message-text">Where opportunities are found</h1>
         </div>
     </section>
 {% endblock header_image %}
@@ -27,7 +27,7 @@
             </div>
         </div>
         <!--**** end of refine results section ****-->
-        <div class="row">
+        <div class="row filter-results-row p-2">
             <div class="col-12">
                 <div class="row">
                     <div class="col-4">
@@ -37,10 +37,11 @@
                 <div class="row">
                     {% if job_posts.total < job_posts_total.total %}
                         <div class="col-6">
-                            Showing {{ job_posts.total}} job/s for<span class="filter-tab">{{ show_filter(locationField) }}</span> 
-                                                              <span class="filter-tab">{{ show_filter(sectorField) }}</span>
-                                                              <span class="filter-tab">{{ show_salary(salaryField) }}</span> 
-                                                              <span class="filter-tab">{{ show_jobType(jobTypeField) }}</span> 
+                            <p class="d-inline-block">Showing {{ job_posts.total}} job/s for</p>
+                            <span class="filter-tab">{{ show_filter(locationField) }}</span> 
+                            <span class="filter-tab">{{ show_filter(sectorField) }}</span>
+                            <span class="filter-tab">{{ show_salary(salaryField) }}</span> 
+                            <span class="filter-tab">{{ show_jobType(jobTypeField) }}</span> 
                         </div>        
                     {% else %}
                         <div class="col-6">
@@ -99,7 +100,7 @@
         </div>  
         {% endfor %}
         <!--**** end of for every job post in db create job advert ****-->
-        <div class="row justify-content-center">
+        <div class="row justify-content-center paginate-row p-2">
             {% for page_num in job_posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
                 {% if page_num %}
                     {% if job_posts.page == page_num %}

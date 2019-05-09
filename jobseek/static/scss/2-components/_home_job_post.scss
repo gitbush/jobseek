@@ -24,9 +24,14 @@
 .hero-message{
     position: absolute;
     top: 20%;
+    z-index: 98  
+}
+
+.hero-message-text{
+    font-family: Circular-std,"Open Sans",Arial,Helvetica,sans-serif;
     color: white;
-    z-index: 98
-    
+    font-weight: bold;
+    font-size: 3rem;
 }
 
 .refine{
@@ -41,6 +46,10 @@
 .btn-refine{
     color: white;
     background-color: #17a2b8;
+}
+
+.filter-results-row{
+    background-color: white;
 }
 
 .job-title{
@@ -74,4 +83,8 @@
     @include large-mobile-device{
         max-width: 80%;
     }
+}
+
+.paginate-row{
+    background-color: white;
 }
