@@ -69,30 +69,32 @@
         {% for job_post in job_posts.items %}
         <div class="row justify-content-center">
             <section class="card m-2 col-11 col-md-10 col-lg-8 p-0">
-                <div class="row p-2">
-                    <div class="col-3 col-sm-2 p-0 text-center">
-                        <img src="{{ job_post.author.logo_url }}" class="col-3 rounded img-fluid p-0" alt="Comp Logo">
-                    </div>
-                    <div class="col-6 col-sm-6 p-0">
-                        <div class="row m-1"><h1 class="job-title"><a href="{{ url_for('job', id=job_post.id) }}">{{ job_post.title }}</a></h1></div>
-                        <div class="row m-1">
-                            <h2 class="job-subtitle">@{{ job_post.author.companyName }}</h2><small>&nbsp;on&nbsp;{{ job_post.date_posted.strftime('%m/%d/%y') }}</small> 
-                        </div>       
-                    </div>
-                    {% if job_post.author == current_user %}
-                        <div class="col-3">
-                            <a href="{{ url_for('job', id=job_post.id) }}" class="btn btn-sm btn-secondary mt-3"><i class="fas fa-cogs mr-1"></i>Edit</a>
+                <div class="card-body p-3 p-sm-2">
+                    <div class="row p-2">
+                        <div class="col-3 col-sm-2 p-0 text-center">
+                            <img src="{{ job_post.author.logo_url }}" class="col-3 rounded img-fluid p-0" alt="Comp Logo">
                         </div>
-                    {% endif %}
-                </div>
-                <div class="row">
-                    <div class="col-4 job-indicator"><i class="fas fa-map-marker-alt m-1"></i>{{ job_post.location_ref.city }}</div>
-                    <div class="col-4 job-indicator"><i class="fas fa-users m-1"></i>{{ job_post.jobType }}</div>
-                    <div class="col-4 job-indicator"><i class="fas fa-wallet m-1"></i>£{{ job_post.salary }}</div>
-                </div>
-                <div class="row p-1 justify-content-center">
-                    <div class="col-11 role-info"><p>{{ job_post.role_sum|safe }}</p></div>
-                </div>
+                        <div class="col-6 col-sm-6 p-0">
+                            <div class="row m-1"><h1 class="job-title"><a href="{{ url_for('job', id=job_post.id) }}">{{ job_post.title }}</a></h1></div>
+                            <div class="row m-1">
+                                <h2 class="job-subtitle">@{{ job_post.author.companyName }}</h2><small>&nbsp;on&nbsp;{{ job_post.date_posted.strftime('%m/%d/%y') }}</small> 
+                            </div>       
+                        </div>
+                        {% if job_post.author == current_user %}
+                            <div class="col-3">
+                                <a href="{{ url_for('job', id=job_post.id) }}" class="btn btn-sm btn-secondary mt-3"><i class="fas fa-cogs mr-1"></i>Edit</a>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="row">
+                        <div class="col-4 job-indicator"><i class="fas fa-map-marker-alt m-1"></i>{{ job_post.location_ref.city }}</div>
+                        <div class="col-4 job-indicator"><i class="fas fa-users m-1"></i>{{ job_post.jobType }}</div>
+                        <div class="col-4 job-indicator"><i class="fas fa-wallet m-1"></i>£{{ job_post.salary }}</div>
+                    </div>
+                    <div class="row p-1 justify-content-center">
+                        <div class="col-11 role-info"><p>{{ job_post.role_sum|safe }}</p></div>
+                    </div>
+                </div>    
             </section>
         </div>  
         {% endfor %}

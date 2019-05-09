@@ -99,7 +99,7 @@ html, body {
 
 .home-jumbotron {
   background-image: url("/static/assets/images/culture-people-background.jpg");
-  height: 36vmax;
+  height: 70vh;
   padding: 0px;
   margin: 0px;
   background-position: 55% 60%;
@@ -107,6 +107,12 @@ html, body {
   background-size: cover;
   /* Resize the background image to cover the entire container */
   border-radius: 0;
+}
+
+@media screen and (min-width: 900px) {
+  .home-jumbotron {
+    height: 80vh;
+  }
 }
 
 .home-jumbotron::before {
