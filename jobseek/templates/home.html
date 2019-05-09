@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% from "_macros.html" import no_label_render_field %}
+{% from "_macros.html" import no_label_render_field, show_filter, show_salary, show_jobType %}
 {% block header_image %}
     <section class=" row justify-content-center jumbotron home-jumbotron">
         <div class="col-11 col-sm-10 col-md-7 text-center hero-message">
@@ -27,7 +27,26 @@
             </div>
         </div>
         <!--**** end of refine results section ****-->
-        {{ job_posts.total }} of {{ job_posts_total.total }}
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-4">
+                        <h4>Recent Jobs</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        {% if job_posts.total < job_posts_total.total %}
+                            Showing {{ job_posts.total}}  {{ show_filter(locationField) }} {{ show_filter(sectorField) }}
+                                                            {{ show_salary(salaryField) }} {{ show_jobType(jobTypeField) }} jobs
+                            
+                        {% else %}
+                            Showing all {{ job_posts_total.total }} jobs
+                        {% endif %}
+                    </div>    
+                </div>
+            </div>
+        </div>
         <div class="row justify-content-center mt-2">
             <div class="col-11 col-md-10 col-lg-8 text-center">
                 {% with messages = get_flashed_messages(with_categories=true) %}

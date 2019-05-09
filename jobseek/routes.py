@@ -31,23 +31,30 @@ def index():
     job_posts = job_post.query.order_by(job_post.date_posted.desc()).paginate(page=page, per_page=2)
     job_posts_total = job_post.query.paginate()
     form = refineForm()
-    # declare choices from choices helper function
+
+    # current filters placeholders
+    jobTypeField = form.jobType.data
+    salaryField = form.salary.data
+    sectorField = form.sector.data
+    locationField = form.location.data
+
+    # refine form select choices from choices helper function
     form.salary.choices = choices()[0]
     form.sector.choices = choices()[1]
     form.jobType.choices = choices()[2]
     form.location.choices = choices()[3]
+
     if form.validate_on_submit():
         # form handling of none selected 
         if form.jobType.data == 'jobType':
             jobType = job_post.jobType
-           
         else:
             jobType = form.jobType.data
             
         if form.sector.data == 0:
-            sector = job_post.sector_id
+            sector_id = job_post.sector_id
         else:
-            sector = form.sector.data
+            sector_id = form.sector.data
 
         if form.salary.data == 'salary':
             salary = job_post.salary
@@ -55,17 +62,22 @@ def index():
             salary = form.salary.data
             
         if form.location.data == 0:
-            location = job_post.location_id
+            location_id = job_post.location_id
         else:
-            location = form.location.data
-
+            location_id = form.location.data
+        # new job_posts with filters
         job_posts = job_post.query.filter(and_(job_post.jobType == jobType,
-                                                job_post.sector_id == sector,
+                                                job_post.sector_id == sector_id,
                                                 job_post.salary == salary,
-                                                job_post.location_id == location
+                                                job_post.location_id == location_id
                                                 )).order_by(job_post.date_posted.desc()).paginate(page=page, per_page=2)
-
-    return render_template('home.html', job_posts=job_posts, form=form, job_posts_total=job_posts_total)
+        
+        # current sector and location filters placeholders
+        sectorField = sector.query.get(form.sector.data)
+        locationField = location.query.get(form.location.data)
+    
+    return render_template('home.html', job_posts=job_posts, form=form, job_posts_total=job_posts_total, jobTypeField=jobTypeField, 
+                            salaryField=salaryField, sectorField=sectorField, locationField=locationField)
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():

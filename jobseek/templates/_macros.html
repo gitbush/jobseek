@@ -1,4 +1,5 @@
-<!--*** form helper ****-->
+<!--**** form helpers ****-->
+<!-- form -->
 {% macro render_field(field) %}
 <div class="form-group">
     {{ field.label }}
@@ -17,6 +18,7 @@
 </div>
 {% endmacro %}
 
+<!-- form with no label -->
 {% macro no_label_render_field(field) %}
 <div class="form-group mb-0">
     <!-- if validation errors show invlaid feedback -->
@@ -33,5 +35,27 @@
     {% endif %}
 </div>
 {% endmacro %}
-<!--*** end form helper ****-->
+<!--**** end form helpers ****-->
 
+<!--**** current filter placeholder macros ****-->
+<!-- location and sector fields -->
+{% macro show_filter(filterField) %}
+    {% if filterField != None %} 
+        {{ filterField }} 
+    {% endif %}
+{% endmacro %}
+
+<!-- salary field -->
+{% macro show_salary(filterField) %}
+    {% if filterField !='salary' %} 
+        {{ filterField }} 
+    {% endif %}
+{% endmacro %}
+
+<!-- job type field -->
+{% macro show_jobType(filterField) %}
+    {% if filterField !='jobType' %} 
+        {{ filterField }} 
+    {% endif %}
+{% endmacro %}
+<!--**** end current filter placeholder macros ****-->
