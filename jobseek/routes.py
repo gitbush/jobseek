@@ -29,6 +29,7 @@ def choices():
 def index():
     page = request.args.get('page', 1, type=int)
     job_posts = job_post.query.order_by(job_post.date_posted.desc()).paginate(page=page, per_page=2)
+    job_posts_total = job_post.query.paginate()
     form = refineForm()
     # declare choices from choices helper function
     form.salary.choices = choices()[0]
@@ -64,7 +65,7 @@ def index():
                                                 job_post.location_id == location
                                                 )).order_by(job_post.date_posted.desc()).paginate(page=page, per_page=2)
 
-    return render_template('home.html', job_posts=job_posts, form=form)
+    return render_template('home.html', job_posts=job_posts, form=form, job_posts_total=job_posts_total)
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
