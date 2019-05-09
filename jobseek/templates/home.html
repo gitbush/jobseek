@@ -35,14 +35,18 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-6">
-                        {% if job_posts.total < job_posts_total.total %}
-                            Showing {{ job_posts.total}}  {{ show_filter(locationField) }} {{ show_filter(sectorField) }}
-                                                            {{ show_salary(salaryField) }} {{ show_jobType(jobTypeField) }} jobs
-                            
-                        {% else %}
+                    {% if job_posts.total < job_posts_total.total %}
+                        <div class="col-6">
+                            Showing {{ job_posts.total}} job/s for<span class="filter-tab">{{ show_filter(locationField) }}</span> 
+                                                              <span class="filter-tab">{{ show_filter(sectorField) }}</span>
+                                                              <span class="filter-tab">{{ show_salary(salaryField) }}</span> 
+                                                              <span class="filter-tab">{{ show_jobType(jobTypeField) }}</span> 
+                        </div>        
+                    {% else %}
+                        <div class="col-6">
                             Showing all {{ job_posts_total.total }} jobs
-                        {% endif %}
+                        </div>
+                    {% endif %}
                     </div>    
                 </div>
             </div>
