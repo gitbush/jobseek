@@ -2,10 +2,12 @@
 {% block content %}
     <main class="container">
         <div class="row justify-content-center">
-            <section class="card m-2 col-12 col-md-10 col-lg-8">
+            <section class="card m-2 col-11 col-lg-8">
                 <div class="row">
-                    <img src="" class="col-3 rounded img-fluid" alt="Comp Logo">
-                    <div class="col-5 col-sm-6 p-0">
+                    <div class="col-3 col-md-2 p-1 text-center">
+                        <img src="{{ job.author.logo_url }}" class="col-3 rounded img-fluid p-0" alt="Comp Logo">
+                    </div>
+                    <div class="col-7 col-sm-6 p-0">
                         <div class="row m-1"><h1 class="job-title">{{ job.title }}</h1></div>
                         <div class="row m-1"><h2 class="job-subtitle">@{{ job.author.companyName }}</h2><small>&nbsp;on&nbsp;{{ job.date_posted.strftime('%m/%d/%y') }}</small> </div>       
                     </div>
