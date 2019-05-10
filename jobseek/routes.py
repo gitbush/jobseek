@@ -29,7 +29,7 @@ def choices():
 def index():
     page = request.args.get('page', 1, type=int)
     job_posts = job_post.query.order_by(job_post.date_posted.desc()).paginate(page=page, per_page=2)
-    job_posts_total = job_post.query.paginate()
+    job_posts_total = job_posts.total
     form = refineForm()
 
     # current filters placeholders
@@ -76,7 +76,7 @@ def index():
         sectorField = sector.query.get(form.sector.data)
         locationField = location.query.get(form.location.data)
     
-    return render_template('home.html', job_posts=job_posts, form=form, job_posts_total=job_posts_total, jobTypeField=jobTypeField, 
+    return render_template('home.html', job_posts=job_posts,  job_posts_total= job_posts_total, form=form, jobTypeField=jobTypeField, 
                             salaryField=salaryField, sectorField=sectorField, locationField=locationField)
 
 @app.route('/register', methods=['GET', 'POST'])

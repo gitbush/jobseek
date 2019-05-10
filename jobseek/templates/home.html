@@ -35,7 +35,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    {% if job_posts.total < job_posts_total.total %}
+                    {% if job_posts.total < job_posts_total %}
                         <div class="col-12">
                             <small class="d-inline-block">Showing {{ job_posts.total}} job/s for</small>
                             <span class="filter-tab">{{ show_filter(locationField) }}</span> 
@@ -45,13 +45,13 @@
                         </div>        
                     {% else %}
                         <div class="col-6">
-                            Showing all {{ job_posts_total.total }} jobs
+                            Showing all {{ job_posts_total }} jobs
                         </div>
                     {% endif %}
                     </div>    
                 </div>
                 <div class="col-12 mt-2">
-                    {% if job_posts.total < job_posts_total.total %} 
+                    {% if job_posts.total < job_posts_total %} 
                     <div class="col-6 col-sm-4 p-0">
                         <a class="btn btn-sm btn-outline-info" href="/">Reset Filters</a>
                     </div>
