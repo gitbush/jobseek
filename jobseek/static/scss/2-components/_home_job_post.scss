@@ -1,14 +1,17 @@
 .home-jumbotron{
     background-image: url('/static/assets/images/culture-people-background.jpg');
-    height: 70vh;
+    height: 40vh;
     padding: 0px;
     margin: 0px;
     background-position: 55% 60%; /* Center the image */
     // // background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover; /* Resize the background image to cover the entire container */
     border-radius: 0;
+    @include large-mobile-device{
+        height: 50vh;
+    }
     @include all-desktop-devices{
-        height: 80vh;
+        height: 60vh;
     }
 }
 
