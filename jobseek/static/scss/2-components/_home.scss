@@ -1,3 +1,4 @@
+/**** home page styles ****/
 .home-jumbotron{
     background-image: url('/static/assets/images/culture-people-background.jpg');
     height: 40vh;
@@ -37,9 +38,10 @@
     font-size: 3rem;
 }
 
+/**** refine result section ****/
 .refine{
     color: white;
-    background-color: #2c3e50;
+    background-color: $primary-color:
 }
 
 .refine-heading{
@@ -48,13 +50,27 @@
 
 .btn-refine{
     color: white;
-    background-color: #17a2b8;
+    background-color: $button-color;
 }
 
 .filter-results-row{
     background-color: white;
 }
 
+.filter-tab{
+    padding: .25rem .5rem;
+    margin: .2rem;
+    font-size: .875rem;
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    border-radius: .25rem;
+}
+
+/**** job posts ****/
 .job-title{
     font-size: 1.5rem;
     color: #1CA8D0;

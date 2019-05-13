@@ -1,3 +1,15 @@
+/*** base elements ****/
+html, body {
+    padding: 0;
+    margin: 0;
+    background-color: #bbb;
+}
+
+.mp-none{
+    margin: 0;
+    padding: 0;
+}
+
 /**** navbar ****/
 .navbar{
     z-index: 99;
