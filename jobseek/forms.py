@@ -13,11 +13,13 @@ class registerForm(FlaskForm):
 
     # custom validation checking if a user has already signed up with company name and email
     def validate_companyName(self, companyName):
+        ''' If details already registered, show error msg asking to login '''
         emp = employer.query.filter_by(companyName=companyName.data).first()
         if emp:
             raise ValidationError('Company already exists on Jobseek. Please login')
 
     def validate_Email(self, email):
+        ''' If details already registered, show error msg asking to use alternate email '''
         emp = employer.query.filter_by(email=companyEmail.data).first()
         if emp:
             raise ValidationError('Email already exists on Jobseek. Please use an alternate email')
@@ -29,7 +31,7 @@ class loginForm(FlaskForm):
     remember = BooleanField('Remember Me')
     submit = SubmitField('Login')
 
-
+# querySelectField query factories
 def location_choice():
     return location.query
 
@@ -55,9 +57,9 @@ class jobForm(FlaskForm):
 
 class refineForm(FlaskForm):
     jobType = SelectField('Job Type')
-    sector = SelectField('Job Type', coerce=int)
+    sector = SelectField('Sector', coerce=int)
     salary = SelectField('Salary')   
-    location = SelectField('Job Type', coerce=int)
+    location = SelectField('Location', coerce=int)
     submit = SubmitField('Refine')
 
 
