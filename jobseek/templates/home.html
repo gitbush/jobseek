@@ -38,10 +38,18 @@
                     {% if job_posts.total < job_posts_total %}
                         <div class="col-12">
                             <small class="d-inline-block">Showing {{ job_posts.total}} job/s for</small>
+                            {% if locationField %}
                             <span class="filter-tab">{{ show_filter(locationField) }}</span> 
+                            {% endif %}
+                            {% if sectorField %}
                             <span class="filter-tab">{{ show_filter(sectorField) }}</span>
-                            <span class="filter-tab">{{ show_salary(salaryField) }}</span> 
-                            <span class="filter-tab">{{ show_jobType(jobTypeField) }}</span> 
+                            {% endif %}
+                            {% if salaryField != 'salary' %}
+                            <span class="filter-tab">{{ salaryField }}</span> 
+                            {% endif %}
+                            {% if jobTypeField != 'jobType' %}
+                            <span class="filter-tab">{{ jobTypeField }}</span> 
+                            {% endif %}
                         </div>        
                     {% else %}
                         <div class="col-6">
