@@ -101,7 +101,8 @@ To acheive the users needs I concluded the following requirements would be neede
     - Allow logged in user to edit any field or delete entire post.
 
 ### Wireframes
-Adobe XD was used to draw up wireframes prior to development.
+Adobe XD was used to draw up <a href="Jobseek-wireframes.xd">wireframes</a> prior to development.
+
 
 
 ## Features
