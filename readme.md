@@ -100,22 +100,56 @@ To acheive the users needs I concluded the following requirements would be neede
     -  Logged in users will be sent here if edit is clicked on home page job post.
     - Allow logged in user to edit any field or delete entire post.
 
+**Color/Theme**
+
+Centred around logo
+
 ### Wireframes
 Adobe XD was used to draw up <a href="Jobseek-wireframes.xd">wireframes</a> prior to development.
 
 
-
 ## Features
+### Existing features
+1. **All pages**
+     - Navigation
+       - Anonymous 
+       - Logged in (post a job) 
+     - Footer
 
-In this section, you should go over the different parts of your project, and describe each in a sentence or so.
- 
-### Existing Features
-- Feature 1 - allows users X to achieve Y, by having them fill out Z
-- ...
+2. **Home page (index.html)**
+   - All job posts
+   - Filter sections and results
+   - Pagination
+   - Edit post
 
-For some/all of your features, you may choose to reference the specific project files that implement them, although this is entirely optional.
+3. **Full job post**
+   - Anonymous
+   - Logged in (author can edit/delete post)
+   - Sent here from edit click
+  
+4. **Create job post**
+   - All text fields (gif)
 
-In addition, you may also use this section to discuss plans for additional features to be implemented in the future:
+5. **Edit job post**
+   - Anonymous cannot access
+   - sent here from edit
+
+6. **Register**
+   - Registration 
+   - logo url
+   - validation
+
+7. **Login**
+   - login
+   - validation
+   - if not registered sent to register page
+
+**Other features**
+1. flash messages
+2. responsivenesss
+3. custom error pages
+4. continue on to attempted page when not logged in 
+
 
 ### Features Left to Implement
 - Another feature idea
