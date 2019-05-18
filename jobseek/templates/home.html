@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% from "_macros.html" import no_label_render_field, show_filter, show_salary, show_jobType %}
+{% from "_macros.html" import no_label_render_field, show_filter, flash_messages %}
 {% block header_image %}
     <section class=" row justify-content-center jumbotron home-jumbotron">
         <div class="col-11 col-sm-10 col-md-7 text-center hero-message">
@@ -69,15 +69,7 @@
         </div>
         <div class="row justify-content-center mt-2">
             <div class="col-11 col-md-10 col-lg-8 text-center">
-                {% with messages = get_flashed_messages(with_categories=true) %}
-                    {% if messages %}
-                        {% for category, message in messages %}
-                            <div class="alert alert-{{ category }}">
-                                {{ message }}
-                            </div>
-                        {% endfor %}
-                    {% endif %}
-                {% endwith %}
+                   {{ flash_messages() }} 
             </div>
         </div>
 
