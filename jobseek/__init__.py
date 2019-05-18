@@ -15,5 +15,13 @@ csrf.init_app(app)
 # login manager
 login_manager = LoginManager(app)
 # redirects to login if user tries to manually enter job_post via url
-login_manager.login_view = 'login'
+login_manager.login_view = 'employers.login'
 login_manager.login_message_category = 'info'
+
+from jobseek.users.routes import employers
+from jobseek.job_posts.routes import posts
+from jobseek.main.routes import main
+
+app.register_blueprint(employers)
+app.register_blueprint(posts)
+app.register_blueprint(main)
