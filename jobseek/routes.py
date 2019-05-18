@@ -4,11 +4,12 @@ from jobseek.forms import registerForm, loginForm, jobForm, refineForm
 from jobseek.models import employer, job_post, location, sector
 from flask_login import login_user, current_user, logout_user, login_required
 from sqlalchemy import or_, and_
+from operator import itemgetter
 
 # choices for refineForm select fields
 # stopping duplicate values in select
 def choices():
-    salary_choices = [('salary', 'Salary')]
+    salary_choices = [('0', 'Salary')]
     sector_choices = [(0, 'Sector')]
     jobType_choices = [('jobType', 'Job Type')]
     location_choices = [(0, 'Location')]
@@ -16,12 +17,15 @@ def choices():
     for g in job_posts:
         if (g.salary, g.salary) not in salary_choices:
             salary_choices.append((g.salary, g.salary))
+            salary_choices.sort(key = itemgetter(0))
         if (g.sector_ref.id, g.sector_ref.sector ) not in sector_choices:
             sector_choices.append((g.sector_ref.id, g.sector_ref.sector))
+            sector_choices.sort(key = itemgetter(0))
         if (g.jobType, g.jobType ) not in jobType_choices:
             jobType_choices.append((g.jobType, g.jobType))
         if (g.location_ref.id, g.location_ref.city ) not in location_choices:
             location_choices.append((g.location_ref.id, g.location_ref.city))
+            location_choices.sort(key = itemgetter(0))
     return salary_choices, sector_choices, jobType_choices, location_choices
 
 # index route for home page
@@ -56,7 +60,7 @@ def index():
         else:
             sector_id = form.sector.data
 
-        if form.salary.data == 'salary':
+        if form.salary.data == '0':
             salary = job_post.salary
         else:
             salary = form.salary.data
