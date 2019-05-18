@@ -65,7 +65,17 @@
         <div>
             <a class="footer-jobseek"href="#"><img class="footer-logo" src="{{ url_for('static', filename='assets/images/Jobseek-logo.png') }}">JOBSEEK</a>
         </div>
-        <div>To TOP</div>
+        <!-- show current user logged in -->
+        <div class="logged-in">
+            {% if current_user.is_authenticated %}
+            <div class="user">
+                <p>Logged in as:</p>
+                <img class="user-img" src="{{ current_user.logo_url }}" alt="">
+                <span class="user-name">{{ current_user.companyName }}</span>
+            </div>
+            {% endif %}
+        </div>
+        <!-- end show current user logged in -->
     </footer>
     <!-- **** end common footer **** -->
 

@@ -65,3 +65,18 @@ html, body {
     letter-spacing: 1.5px;
 }
 
+.logged-in{
+    font-size: .7rem;
+    margin-left: 10px;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr)
+}
+
+.user{
+    height: 2rem;
+}
+
+.user-img{
+    height: 100%;
+}
+

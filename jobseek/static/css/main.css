@@ -70,6 +70,23 @@ html, body {
   letter-spacing: 1.5px;
 }
 
+.logged-in {
+  font-size: .7rem;
+  margin-left: 10px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (1fr)[3];
+      grid-template-rows: repeat(3, 1fr);
+}
+
+.user {
+  height: 2rem;
+}
+
+.user-img {
+  height: 100%;
+}
+
 /*** register form styles ***/
 .form-container {
   text-align: -webkit-center;
