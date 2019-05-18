@@ -2,6 +2,7 @@
 {% block content %}
     <main class="container">
         <div class="row justify-content-center">
+            <!--**** job post card **** -->
             <section class="card m-2 col-11 col-lg-8">
                 <div class="row mt-3">
                     <div class="col-3 col-md-2 p-1 text-center">
@@ -11,6 +12,7 @@
                         <div class="row m-1"><h1 class="job-title">{{ job.title }}</h1></div>
                         <div class="row m-1"><h2 class="job-subtitle">@{{ job.author.companyName }}</h2><small>&nbsp;on&nbsp;{{ job.date_posted.strftime('%m/%d/%y') }}</small> </div>       
                     </div>
+                    <!-- if current user is author of job post, dislay edit and delete buttons -->
                     {% if job.author == current_user %}
                         <div class="col-2 mt-2">
                             <div class="row">
@@ -46,10 +48,11 @@
                     <div class="col-12 role-info"><p>{{ job.how_to_apply|safe }}</p></div>
                 </section>
             </section>
+            <!--**** end job post card **** -->
         </div>  
     </main>
 
-    <!--**** delete post modal ****-->
+    <!--**** delete post modal to when delete button is clicked ****-->
     <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
