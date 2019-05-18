@@ -11,7 +11,7 @@ from operator import itemgetter
 def choices():
     salary_choices = [('0', 'Salary')]
     sector_choices = [(0, 'Sector')]
-    jobType_choices = [('jobType', 'Job Type')]
+    jobType_choices = [('0', 'Job Type')]
     location_choices = [(0, 'Location')]
     job_posts = job_post.query.all()
     for g in job_posts:
@@ -50,7 +50,7 @@ def index():
     # refine results form handler
     # checking if field selected. If not return all posts
     if form.validate_on_submit():
-        if form.jobType.data == 'jobType':
+        if form.jobType.data == '0':
             jobType = job_post.jobType
         else:
             jobType = form.jobType.data
