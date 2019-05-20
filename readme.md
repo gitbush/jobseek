@@ -26,23 +26,25 @@ I chose to go with my own idea of a job advertisement site while still following
 
 #### Jobseek was created with two users in mind:
 
-  - **As an employer I want:**
-      1. An easy user interface to post available job opportunites at my company for jobseekers to view.
-      2. A way for jobseekers to apply for roles.
-      3. To edit any job posts I have made with potential updated content.
-      4. To remove/delete a filled or no longer available job post.
-      5. Any job posts that I have created are protected from risk of modifying/deleting from anyone other than the creator.
-      6. *To see all job posts that I have created*
-      7. *To be able to show my company name and logo*
-      8. *To be able to update my logo*
+  **As an employer I want:**
+
+  1. An easy user interface to post available job opportunites at my company for jobseekers to view.
+  2. A way for jobseekers to apply for roles.
+  3. To edit any job posts I have made with potential updated content.
+  4. To remove/delete a filled or no longer available job post.
+  5. Any job posts that I have created are protected from risk of modifying/deleting from anyone other than the creator.
+  6. *To see all job posts that I have created*
+  7. *To be able to show my company name and logo*
+  8. *To be able to update my logo*
   
-  - **As a jobseeker I want:**
-    1. To view any new roles that are available.
-    2. To view any roles that are within a certain sector, salary, location and employment type or a mixture of all.
-    3. Details on how to apply for any roles of interest.
-    4. See how long job posts have been advertised.
-    5. *Know how many other jobseekers have applied for certain roles.*
-    6. *To order job posts based on different criteria*
+  **As a jobseeker I want:**
+
+ 1. To view any new roles that are available.
+ 2. To view any roles that are within a certain sector, salary, location and employment type or a mixture of all.
+ 3. Details on how to apply for any roles of interest.
+ 4. See how long job posts have been advertised.
+ 5. *Know how many other jobseekers have applied for certain roles.*
+ 6. *To order job posts based on different criteria*
   
 ### Requirements
 
@@ -64,7 +66,8 @@ To acheive the users needs I concluded the following requirements would be neede
 ### Design Choices
 
 **Logo**
-- <span><img src="jobseek/static/assets/images/Jobseek.png" width=30%></span> was designed using <a href="https://hatchful.shopify.com/">Hatchful</a> free logo maker.
+  
+  <span><img src="jobseek/static/assets/images/Jobseek.png" width=15%></span> was designed using <a href="https://hatchful.shopify.com/">Hatchful</a> free logo maker.
   
 **Colors/theme**
 - The site color scheme was based off the Jobseek logo above with all button colors fluorescent blue of the logo and the footer and refine section dark blue/grey of the JOBSEEK name.
@@ -96,18 +99,23 @@ Adobe XD was used to draw up <a href="Jobseek-wireframes.xd">wireframes</a> prio
         - Logout 
         - Home
     <div align="center">
-    **Logged in user**
+    <b>Logged in user</b>
     <img src="https://i.ibb.co/9GQfBJg/logged-in-nav.png" alt="logged-in-nav" border="0" width="90%">
     </div>
     <div align="center">
-    **Anonymous user**
+    <b>Anonymous user</b>
     <img src="https://i.ibb.co/3NY8HNC/anonymous-nav.png" alt="anonymous-nav" border="0" width="90%">
     </div>
 
     - **Footer**
         - Breif about section 
-        - Jobseek logo
-        - To top link
+        - Jobseek logo links to index
+        - Logged in user can see their logo and company name displayed as indication of active user.
+  
+    <div align="center">
+    <b>Logged in user<b>
+    <img src="https://i.ibb.co/rwjRwkS/Logged-in-footer.png" alt="Logged-in-footer" border="0" width="90%">
+    </div>
   - **Home page (index.html)**
     - Show all job posts summaries with company logo
       - Salary, job type, location, company name, role summary
