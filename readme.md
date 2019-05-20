@@ -61,6 +61,28 @@ To acheive the users needs I concluded the following requirements would be neede
     | Anonymous      | No | Yes
     | Registered employer      | Yes      | Yes
     
+### Design Choices
+
+**Logo**
+- <span><img src="jobseek/static/assets/images/Jobseek.png" width=30%></span> was designed using <a href="https://hatchful.shopify.com/">Hatchful</a> free logo maker.
+  
+**Colors/theme**
+- The site color scheme was based off the Jobseek logo above with all button colors fluorescent blue of the logo and the footer and refine section dark blue/grey of the JOBSEEK name.
+- These were chosen as they provide a clean aspect and contrast each other well. 
+
+**Icons**
+- All icons were chosen to represent to be understood by everyone and compliment the text that follows.
+
+**Backgrounds**
+- All backgrounds were chosen to show a proffesional yet inspiring theme.
+- The black opacity overlay dulls the bright colours of the background images for a comfortable UX.
+
+### Wireframes
+Adobe XD was used to draw up <a href="Jobseek-wireframes.xd">wireframes</a> prior to development.
+
+
+## Features
+### Existing features
 - **Pages**
   - **Any page**
     - **Navigation**
@@ -69,6 +91,7 @@ To acheive the users needs I concluded the following requirements would be neede
       - Register 
       - Login
       - Create Job Post - logged in user 
+
     - **Footer**
       - Breif about section 
       - Jobseek logo
@@ -99,50 +122,6 @@ To acheive the users needs I concluded the following requirements would be neede
   - **Edit job post**
     -  Logged in users will be sent here if edit is clicked on home page job post.
     - Allow logged in user to edit any field or delete entire post.
-
-**Color/Theme**
-
-Centred around logo
-
-### Wireframes
-Adobe XD was used to draw up <a href="Jobseek-wireframes.xd">wireframes</a> prior to development.
-
-
-## Features
-### Existing features
-1. **All pages**
-     - Navigation
-       - Anonymous 
-       - Logged in (post a job) 
-     - Footer
-
-2. **Home page (index.html)**
-   - All job posts
-   - Filter sections and results
-   - Pagination
-   - Edit post
-
-3. **Full job post**
-   - Anonymous
-   - Logged in (author can edit/delete post)
-   - Sent here from edit click
-  
-4. **Create job post**
-   - All text fields (gif)
-
-5. **Edit job post**
-   - Anonymous cannot access
-   - sent here from edit
-
-6. **Register**
-   - Registration 
-   - logo url
-   - validation
-
-7. **Login**
-   - login
-   - validation
-   - if not registered sent to register page
 
 **Other features**
 1. flash messages
