@@ -86,16 +86,28 @@ Adobe XD was used to draw up <a href="Jobseek-wireframes.xd">wireframes</a> prio
 - **Pages**
   - **Any page**
     - **Navigation**
-      - Jobseek logo link to index
-      - Home menu item link to index
-      - Register 
-      - Login
-      - Create Job Post - logged in user 
+      - Jobseek logo links to index
+      - Anonymous user menu items
+        - Register
+        - Login
+        - Home
+      - Logged in user menu items
+        - Create Job Post   
+        - Logout 
+        - Home
+    <div align="center">
+    **Logged in user**
+    <img src="https://i.ibb.co/9GQfBJg/logged-in-nav.png" alt="logged-in-nav" border="0" width="90%">
+    </div>
+    <div align="center">
+    **Anonymous user**
+    <img src="https://i.ibb.co/3NY8HNC/anonymous-nav.png" alt="anonymous-nav" border="0" width="90%">
+    </div>
 
     - **Footer**
-      - Breif about section 
-      - Jobseek logo
-      - To top link
+        - Breif about section 
+        - Jobseek logo
+        - To top link
   - **Home page (index.html)**
     - Show all job posts summaries with company logo
       - Salary, job type, location, company name, role summary
