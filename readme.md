@@ -90,45 +90,35 @@ Adobe XD was used to draw up <a href="Jobseek-wireframes.xd">wireframes</a> prio
   - **Any page**
     - **Navigation**
       - Jobseek logo links to index
-      - Anonymous user menu items
+      - Anonymous user menu items:
         - Register
         - Login
         - Home
-      - Logged in user menu items
+      - Logged in user menu items:
         - Create Job Post   
         - Logout 
         - Home
-    <div align="center">
-    <b>Logged in user</b>
-    <img src="https://i.ibb.co/9GQfBJg/logged-in-nav.png" alt="logged-in-nav" border="0" width="90%">
-    </div>
-    <div align="center">
-    <b>Anonymous user</b>
-    <img src="https://i.ibb.co/3NY8HNC/anonymous-nav.png" alt="anonymous-nav" border="0" width="90%">
-    </div>
 
     - **Footer**
         - Breif about section 
         - Jobseek logo links to index
         - Logged in user can see their logo and company name displayed as indication of active user.
-  
-    <div align="center">
-    <b>Logged in user<b>
-    <img src="https://i.ibb.co/rwjRwkS/Logged-in-footer.png" alt="Logged-in-footer" border="0" width="90%">
-    </div>
+
   - **Home page (index.html)**
-    - Show all job posts summaries with company logo
-      - Salary, job type, location, company name, role summary
+    - Show all job posts summaries with:
+      - Salary, job type, location, company name, company logo, role summary
       - Logged in user can click edit on their created job posts
     - Filter job posts functionality
     - *Order job posts functionality*
     - Job post job title send user to full detailed view
+  
   - **Single full job post**
     - Show user detailed view of job post
       - Role summary
       - Role requirements
       - Role responsibilities 
       - How to apply 
+      - Logged in user can click edit or delete on their created job posts
       - *How many applications*
   - **Register**
     - Allows employers to register their company to advertise new roles
@@ -144,14 +134,27 @@ Adobe XD was used to draw up <a href="Jobseek-wireframes.xd">wireframes</a> prio
     - Allow logged in user to edit any field or delete entire post.
 
 **Other features**
-1. flash messages
-2. responsivenesss
-3. custom error pages
-4. continue on to attempted page when not logged in 
+1. **Flash messages**
+     - Flash messages were used to notify users of successfull/unsuccessfull actions eg, created job posts, incorrect login
+2. **Form validation**
+    - All forms were created with WTforms. WTforms built in validations provide a much cleaner, desciptive and overall error coverage eg. using invalid credentials, invalid character count.
+3. **Responsivenesss**
+    - Jobseek is fully responsive across all devices and screen sizes as well cross browser.
+4. **Pagination**
+    - A limit of X number of job posts are displayed on a single page. Pagination was used to provide a more manigeable UX.
+5. **Remember me**
+    - A remember token is stored on the users machine so they can stay logged in for a short time if navigating away from the site.
+6. **Custom error pages**
+    - TBD 
 
 
-### Features Left to Implement
-- Another feature idea
+### Features Left to Implement beyond scope of project
+1. Further user authentication:
+    - Jobseeker - Upload CV, save jobs, rate employers, create profile.
+    - Employer - employer profile, company information, social media feed.
+    - Admin - monitor job posts and jobseekers, authenticate users before allowing access.
+2. Click to apply:
+    - Allow jobseekers to send their CV to employers from job post page.
 
 ## Technologies Used
 
