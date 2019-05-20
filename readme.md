@@ -158,11 +158,36 @@ Adobe XD was used to draw up <a href="Jobseek-wireframes.xd">wireframes</a> prio
 
 ## Technologies Used
 
-In this section, you should mention all of the languages, frameworks, libraries, and any other tools that you have used to construct this project. For each, provide its name, a link to its official site and a short sentence of why it was used.
-
+HTML, CSS and Javascript were used throught this project as well as:
 - [JQuery](https://jquery.com)
     - The project uses **JQuery** to simplify DOM manipulation.
+- [Python](https://www.python.org/)
+    - Used for application logic
+- [Flask](http://flask.pocoo.org/)
+    - A python microframework. Used to handle routing and logic.
+- [Jinja2](http://jinja.pocoo.org/docs/2.10/)
+    - A templating language for python.
+- [Bootstrap](https://getbootstrap.com/docs/4.0/getting-started/introduction/)
+    - Used to simplify the structure of the website and make the website responsive easily.
+- [FontAwesome](https://fontawesome.com/)
+    - Used for all icons
+- [CKEditor](https://ckeditor.com/)
+    - For create job post form field input formating.
+- [MYSQL](https://www.mysql.com/)
+    - SQL database management system.
+- [SQLAlchemy](https://www.sqlalchemy.org/)
+    - SQLAlchemy is a Python SQL toolkit and Object Relational Mapper. Use in majority of SQL commands. Simplifies long MYSQL queries and allows for database declaration within code.
+- [WTForms](https://wtforms.readthedocs.io/en/stable/)
+    - Use for all form creations, handling and validation.
 
+**Tools for testing**
+  - [HTML checker]()
+  - [CSS checker]()
+  - [PEP8]()
+  - [Parallels]()
+
+**Wireframes**
+  - [Adobe XD](https://www.adobe.com/uk/products/xd.html)
 
 ## Testing
 
