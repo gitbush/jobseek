@@ -8,14 +8,17 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">    
     <!-- **** font awesome **** -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <!-- **** main style sheet **** -->    
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     <title>Jobseek</title>
 </head>
 <body>
-    <!-- **** common navbar **** -->
+    <!-- **** navbar **** -->
     <header class="container-fluid mp-none">
         <nav class="navbar navbar-expand-md navbar-light bg-light">
-            <a href="/" class="navbar-brand"><img class="logo" src="{{ url_for('static', filename='assets/images/Jobseek.png') }}"></a>
+            <a href="/" class="navbar-brand">
+                <img class="logo" src="{{ url_for('static', filename='assets/images/Jobseek.png') }}" alt="jobseek-logo">
+            </a>
             <button class="navbar-toggler no-border" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -44,14 +47,14 @@
             </div>
         </nav>
     </header>
-    <!-- **** end common navbar **** -->
+    <!-- **** end navbar **** -->
 
     {% block header_image %}
     {% endblock header_image %}
     {% block content %}
     {% endblock %}
 
-    <!-- **** common footer **** -->
+    <!-- **** footer **** -->
     <footer class="footer">
         <div>
             <h4>About</h4>
@@ -63,33 +66,31 @@
             </div>
         </div>
         <div>
-            <a href="#"><img class="footer-logo" src="{{ url_for('static', filename='assets/images/Jobseek-logo.png') }}"></a><span class="footer-jobseek">JOBSEEK</span>
+            <a href="/">
+                <img class="footer-logo" src="{{ url_for('static', filename='assets/images/Jobseek-logo.png') }}" alt="jobseek-logo">
+            </a>
+            <span class="footer-jobseek">JOBSEEK</span>
         </div>
         <!-- show current user logged in -->
         <div class="logged-in">
             {% if current_user.is_authenticated %}
             <div class="user">
                 <p>Logged in as:</p>
-                <img class="user-img" src="{{ current_user.logo_url }}" alt="">
+                <img class="user-img" src="{{ current_user.logo_url }}" alt="logged-in-user">
                 <span class="user-name">{{ current_user.companyName }}</span>
             </div>
             {% endif %}
         </div>
         <!-- end show current user logged in -->
     </footer>
-    <!-- **** end common footer **** -->
+    <!-- **** end footer **** -->
 
-    </footer>
     <!-- **** Bootstrap and Jquery **** -->
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <!-- **** CKeditor **** -->
     <script src="//cdn.ckeditor.com/4.11.4/standard/ckeditor.js"></script>
-    <!--**** replace all text area fields with CKeditor ****-->
-
+    <!-- **** scripts.js **** -->
     <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
-    <script>
-        CKEDITOR.replaceAll();
-    </script>
 </body>
 </html>
