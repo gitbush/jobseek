@@ -237,6 +237,10 @@ html, body {
   font-size: 1rem;
 }
 
+.role-info ul {
+  padding-left: 1rem;
+}
+
 .form-control-lg {
   font-size: .9rem;
 }

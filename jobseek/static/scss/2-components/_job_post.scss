@@ -5,3 +5,9 @@
 .job-desc-sub-heading{
     font-size: 1rem;
 }
+
+ul {
+    .role-info &{
+        padding-left: 1rem;
+    }
+}

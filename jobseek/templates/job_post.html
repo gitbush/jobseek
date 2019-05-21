@@ -8,7 +8,7 @@
                     <div class="col-3 col-md-2 p-1 text-center">
                         <img src="{{ job.author.logo_url }}" class="col-3 rounded img-fluid p-0" alt="Comp-Logo">
                     </div>
-                    <div class="col-7 col-sm-6 p-0">
+                    <div class="col-7 col-sm-6 p-0 pl-2">
                         <div class="row m-1"><h1 class="job-title">{{ job.title }}</h1></div>
                         <div class="row m-1"><h2 class="job-subtitle">@{{ job.author.companyName }}</h2><small>&nbsp;on&nbsp;{{ job.date_posted.strftime('%m/%d/%y') }}</small> </div>       
                     </div>
@@ -25,26 +25,29 @@
                     {% endif %}
                 </div>
                 <div class="row mt-1">
-                    <div class="col-4 job-indicator"><i class="fas fa-map-marker-alt m-1"></i>{{ job.location_ref.city }}</div>
-                    <div class="col-4 job-indicator"><i class="fas fa-users m-1"></i>{{ job.jobType }}</div>
-                    <div class="col-4 job-indicator"><i class="fas fa-wallet m-1"></i>£{{ job.salary }}</div>
+                    <div class="col-4 job-indicator p-1"><i class="fas fa-map-marker-alt m-1"></i>{{ job.location_ref.city }}</div>
+                    <div class="col-4 job-indicator p-1"><i class="fas fa-users m-1"></i>{{ job.jobType }}</div>
+                    <div class="col-4 job-indicator p-1"><i class="fas fa-wallet m-1"></i>£{{ job.salary }}</div>
                 </div>
                 <hr>
                 <h2 class="job-desc-heading">Job Description</h2>
-                <section class="row p-3">
-                    <h3 class="job-desc-sub-heading">Role Summary</h3>
+                <section class="row p-3 p-sm-4">
+                    <h3 class="job-desc-sub-heading m-0">Role Summary</h3>
                     <div class="col-12 role-info"><p>{{ job.role_sum|safe }}</p></div>
                 </section>
-                <section class="row p-3">
-                    <h3 class="job-desc-sub-heading">Responsibiliites</h3>
+                <hr>
+                <section class="row p-3 p-sm-4">
+                    <h3 class="job-desc-sub-heading m-0">Responsibiliites</h3>
                     <div class="col-12 role-info"><p>{{ job.resp|safe }}</p></div>
                 </section>
-                <section class="row p-3">
-                    <h3 class="job-desc-sub-heading">Skils/Requirements</h3>
+                <hr>
+                <section class="row p-3 p-sm-4">
+                    <h3 class="job-desc-sub-heading m-0">Skils/Requirements</h3>
                     <div class="col-12 role-info"><p>{{ job.requirements|safe }}</p></div>
                 </section>
-                <section class="row p-3">
-                    <h3 class="job-desc-sub-heading">How to Apply?</h3>
+                <hr>
+                <section class="row p-3 p-sm-4">
+                    <h3 class="job-desc-sub-heading m-0">How to Apply?</h3>
                     <div class="col-12 role-info"><p>{{ job.how_to_apply|safe }}</p></div>
                 </section>
             </section>
