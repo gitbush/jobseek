@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import SubmitField, SelectField
 
-class refineForm(FlaskForm):
+class RefineForm(FlaskForm):
     jobType = SelectField('Job Type')
     sector = SelectField('Sector', coerce=int)
     salary = SelectField('Salary')   

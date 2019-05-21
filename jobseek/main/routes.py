@@ -2,7 +2,7 @@ from flask import render_template, url_for, redirect, flash, request, Blueprint
 from jobseek.models import employer, job_post, location, sector
 from sqlalchemy import or_, and_
 from jobseek.main.utils import choices
-from jobseek.main.forms import refineForm
+from jobseek.main.forms import RefineForm
 
 
 main = Blueprint('main', __name__)
@@ -13,7 +13,7 @@ def index():
     page = request.args.get('page', 1, type=int) # find page for pagination 
     job_posts = job_post.query.order_by(job_post.date_posted.desc()).paginate(page=page, per_page=2)
     job_posts_total = job_posts.total # total posts for refine results 
-    form = refineForm()
+    form = RefineForm()
     # refine form select choices from choices helper function
     form.salary.choices = choices()[0]
     form.sector.choices = choices()[1]

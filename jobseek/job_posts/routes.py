@@ -1,6 +1,6 @@
 from flask import render_template, url_for, redirect, flash, request, Blueprint
 from jobseek.models import employer, job_post, location, sector
-from jobseek.job_posts.forms import jobForm
+from jobseek.job_posts.forms import JobForm
 from flask_login import login_user, current_user, logout_user, login_required
 
 
@@ -14,14 +14,14 @@ def create_job():
     ''' If all form fields are filled in and validates then create and commit a new job post to db.
         Redirecet to home page with flash message success
     '''
-    form = jobForm()
+    form = JobForm()
     if form.validate_on_submit():
         new_job = job_post(title=form.title.data, sector_id=form.sector.data.id, jobType=form.jobType.data, location_id=form.location.data.id ,
                             salary=form.salary.data, role_sum=form.summary.data, resp=form.responsibilities.data, requirements=form.requirements.data,
                             how_to_postsly=form.how_to_postsly.data, author=current_user)
         db.session.add(new_job)
         db.session.commit()
-        flash(f'Job post created by { new_job.author.companyName }!', 'success')
+        flash(f'Job post created by {new_job.author.companyName}!', 'success')
         return redirect(url_for('main.index'))
     return render_template(('create_job.html'), form=form, title='Create Job Post')
 
@@ -39,7 +39,7 @@ def edit_post(id):
         If POST commmit changes to db and redirect to updated job post
     '''
     job = job_post.query.get(id)
-    form = jobForm()
+    form = JobForm()
 
     if form.validate_on_submit():
         job.title = form.title.data
