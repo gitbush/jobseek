@@ -181,10 +181,10 @@ HTML, CSS and Javascript were used throught this project as well as:
     - Use for all form creations, handling and validation.
 
 **Tools for testing**
-  - [HTML checker]()
-  - [CSS checker]()
-  - [PEP8]()
-  - [Parallels]()
+  - [HTML checker](https://validator.w3.org/)
+  - [CSS checker](https://jigsaw.w3.org/css-validator/)
+  - [PEP8](http://pep8online.com/)
+  - [Parallels](https://www.parallels.com/uk/)
 
 **Wireframes**
   - [Adobe XD](https://www.adobe.com/uk/products/xd.html)
