@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    
     // disable refine button if none selected
     $('.btn-refine').attr('disabled', true);
     $('#sector, #salary, #location, #jobType').change(function(){
@@ -10,4 +11,9 @@ $(document).ready(function(){
             
         }
     }) 
+
+    // replace all text area fields with CKeditor
+    CKEDITOR.replaceAll();
 })
+
+
