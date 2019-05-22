@@ -189,6 +189,40 @@ HTML, CSS and Javascript were used throught this project as well as:
 **Wireframes**
   - [Adobe XD](https://www.adobe.com/uk/products/xd.html)
 
+## Database
+
+MYSQl was used as the RDBMS. Using the user stories in the UX section the following ER Diagram was created with [Lucid Charts](https://www.lucidchart.com/pages/tour).
+
+<div align="center">
+<img width="90%" src="https://i.ibb.co/nCQGRrD/Screenshot-19.png" alt="Screenshot-19" border="0">
+</div>
+
+The **employer** table has the following columns:
+
+- **id** – This is both the table’s primary key and a unique identifier for each employer. This ID will be referred to by other tables in the data model.
+- **companyName** – This is used for sign in, on authored job posts and as active user.
+- **email** – This is also used for sign and forms an alternate key together with companyName.
+- **logo_url** - This is to show on authored job posts and active user.
+
+The **job_post** table has the following columns:
+
+- **id** - This is both the table’s primary key and a unique identifier for each job_post. This ID will be referred to by other tables in the data model.
+- **date_posted** - This stores the date when the job is posted. By default all job posts are ordered on this column.
+- **title** This stores the job title.
+- **jobType** -  This column signifies whether the job duration is full-time part-time or temporary (contract).
+- **salary** - This specifies the salary of the job post. Groups of £10,000.
+- **role_sum** - A brief summary of the job post. Is display on home page and top of full view job post.
+- **resp** - This specifies the main responsibilities of the role. 
+- **requirements** - This specifies the requirements of the role eg. education, experience etc
+- **how_to_apply** - A note on how to contact the company with an application.
+- **emp_id** - This column stores the ID of the employer related to the job post. It is a reference to the company table. Referenced as a FK.
+- **sector_id** - This refers to an attribute in the sector table that stores the sector/industry of the job eg. IT, Retail etc. Referenced as a FK.
+- **location_id** - This refers to an attribute in the location table that stores the actual location of the job: city, country. Referenced as a FK.
+
+The **sector** and **location** tables are similar in design. Both were created as a means to effectively store a large list of sectors and locations for reference in the job_post table.
+
+SQLAlchmey was used for the majority of the interactions with the database and tables. Where SQL was needed, the MYSQL shell and [POPSQL](https://popsql.com/) was used. POPSQL provides an easy UI when working with SQL databases. 
+
 ## Testing
 
 In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
