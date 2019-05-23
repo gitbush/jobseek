@@ -25,13 +25,17 @@ def create_app(config_class=Config):
     login_manager.init_app(app)
     csrf.init_app(app)
 
+    with app.app_context():
+        # Imports
+        from jobseek.users.routes import employers
+        from jobseek.job_posts.routes import posts
+        from jobseek.main.routes import main
 
-    from jobseek.users.routes import employers
-    from jobseek.job_posts.routes import posts
-    from jobseek.main.routes import main
+        app.register_blueprint(employers)
+        app.register_blueprint(posts)
+        app.register_blueprint(main)
+        
+        # Create tables for our models
+        db.create_all()
 
-    app.register_blueprint(employers)
-    app.register_blueprint(posts)
-    app.register_blueprint(main)
-
-    return app
+        return app
