@@ -256,11 +256,10 @@ To run your own jobseek on heroku:
 2. Login to heroku via command line:
     -  `herkou login`
 3. Create your app on heroku:
-    -  `heroku create [name_of_app]`
+    -  `heroku create <name_of_app>`
     -  Open up heroku in the browser to see you app set up.
 4. Back to the terminal and push your master branch to heroku:
     -  `git push heroku master`
-5. Go to your Heroku dashboard in the browser to see your app created.
 
 Now we need to connect to a MYSQL database. Heroku only allows connecting to MYSQL databases through add-ons. The easiest way to get this set up is through the GUI.
 
@@ -276,13 +275,13 @@ Your jobseek app and database are now set up and connected. The tables have been
 Use the JawsDB values in your connection string in the following.
 
 1. Open up your terminal and connect to the JawsDB MYSQL database:
-    - `mysql -h < HOST > -u< USER > -p< PASSWORD >` 
+    - `mysql -h <HOST> -u<USER> -p<PASSWORD>` 
 2. You will now be in the mysql shell. Now choose the JawsDB database with:
-    - `use < DB >;` 
+    - `use <DB>;` 
 3. With the correct database chosen load the jobseek_data.sql file. Given it is a relatively small number of queries we will use:
     - `source jobseek_data.sql;`
 4. Your database should now be populated with some example data. To check use:
-    - `select * from < table >;`
+    - `select * from <table>;`
 
 
 In addition, you can also run the code locally.
@@ -290,7 +289,7 @@ In addition, you can also run the code locally.
 1. It's recommended when installing packages to work in a virtual environment. Cd into the project root directory and to set up a virtual environment follow this [tutorial](https://www.youtube.com/watch?v=APOPm01BVrk).
 2.  With your editor of choice open and virtual env activated; install all dependencies from the requirements.txt with:
     -  `pip install -r requirements.txt` 
-    -  (Edit .gitignore `<venv/>` with your virtual env name)
+    -  (Edit .gitignore `venv/` with your virtual env name)
 3. Now create an environment variable on your machine with your connection string:
     - Windows: `setx SQL_ALCHEMY_URI = "mysql+pymysql://...[connection string]..."`
     - Mac: 
