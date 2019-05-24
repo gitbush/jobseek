@@ -243,16 +243,59 @@ You should also mention in this section any interesting bugs or problems you dis
 
 If this section grows too long, you may want to split it off into a separate file and link to it from here.
 
-## Deployment
+## Deployment and Database Management
 
-This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
+Jobseek is hosted on heroku.
 
-In particular, you should provide all details of the differences between the deployed version and the development version, if any, including:
-- Different values for environment variables (Heroku Config Vars)?
-- Different configuration files?
-- Separate git branch?
+If you don't already have an account with heroku you will need to [create one](https://signup.heroku.com/login).
 
-In addition, if it is not obvious, you should also describe how to run your code locally.
+To run your own jobseek on heroku:
+
+1. In your terminal cd into the destination of choice and run:
+    -  `git clone https://github.com/gitbush/jobseek.git` 
+2. Login to heroku via command line:
+    -  `herkou login`
+3. Create your app on heroku:
+    -  `heroku create [name_of_app]`
+    -  Open up heroku in the browser to see you app set up.
+4. Back to the terminal and push your master branch to heroku:
+    -  `git push heroku master`
+5. Go to your Heroku dashboard in the browser to see your app created.
+
+Now we need to connect to a MYSQL database. Heroku only allows connecting to MYSQL databases through add-ons. The easiest way to get this set up is through the GUI.
+
+1. Click on your app on your heroku dashboard and follow resources > find more add-ons > JawsDB MYSQL. (you can use whichever MYSQL add-on you choose but for this we will use JawsDB).
+2. Follow JawsDB MYSQL > Install JawsDB MYSQL > Select your app from "app to be provisioned" > Provision add-on. A JawsDB database has now been created for you.
+3. Navigate to settings > Reveal Config Vars. You will see a JAWS_URL variable with a mysql connection string. This contains everything needed to connect to the database. The connection string is formed as follows:
+   - mysql://USER:PASSWORD@HOST/DB
+4. To taylor it to your app you will need to replace "JAWS_URL" with "SQL_ALCHEMY_URI" as this is the environment variable name set in config.py. 
+5. Add pymysql connector to connection string. The connection string will  look like "mysql://..[connection string]..". We need to change it to "mysql+pymysql://...[connection string]..." to allow python to connect to the database via your app.
+
+Your jobseek app and database are now set up and connected. The tables have been created and now you can populate with some example data.
+
+Use the JawsDB values in your connection string in the following.
+
+1. Open up your terminal and connect to the JawsDB MYSQL database:
+    - `mysql -h < HOST > -u< USER > -p< PASSWORD >` 
+2. You will now be in the mysql shell. Now choose the JawsDB database with:
+    - `use < DB >;` 
+3. With the correct database chosen load the jobseek_data.sql file. Given it is a relatively small number of queries we will use:
+    - `source jobseek_data.sql;`
+4. Your database should now be populated with some example data. To check use:
+    - `select * from < table >;`
+
+
+In addition, you can also run the code locally.
+
+1. It's recommended when installing packages to work in a virtual environment. Cd into the project root directory and to set up a virtual environment follow this [tutorial](https://www.youtube.com/watch?v=APOPm01BVrk).
+2.  With your editor of choice open and virtual env activated; install all dependencies from the requirements.txt with:
+    -  `pip install -r requirements.txt` 
+    -  (Edit .gitignore `<venv/>` with your virtual env name)
+3. Now create an environment variable on your machine with your connection string:
+    - Windows: `setx SQL_ALCHEMY_URI = "mysql+pymysql://...[connection string]..."`
+    - Mac: 
+4. CD into the project root and use:
+    - `python app.py` to run the app on local host.
 
 
 ## Credits
