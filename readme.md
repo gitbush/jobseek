@@ -300,11 +300,14 @@ In addition, you can also run the code locally.
 ## Credits
 
 ### Content
-- The text for section Y was copied from the [Wikipedia article Z](https://en.wikipedia.org/wiki/Z)
+- All job posts and companies are fictional and taken from [Mock Jobs](https://sites.google.com/a/activatelearning.ac.uk/the-employment-shop-at-activate-learning/home/for-students/reading-college/mock-jobs)
+- Company logos from [Example logos](https://www.examples.com/design/company-logo.html)
 
 ### Media
-- The photos used in this site were obtained from ...
+- All images are from [Unsplash](https://unsplash.com/public-domain-images)
 
 ### Acknowledgements
 
-- I received inspiration for this project from X
+- [Flask Mega Tutorial](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world)
+- [Flask 101 tutorial ](http://www.blog.pythonlibrary.org/2017/12/12/flask-101-getting-started/) 
+- [SQLEqualizer](https://sqlizer.io/#/) for converting csv to sql
