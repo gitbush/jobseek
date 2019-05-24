@@ -41,6 +41,7 @@ def login():
         emp = employer.query.filter_by(email=form.companyEmail.data).first()
         if emp:
             login_user(emp, remember=form.remember.data)
+            flash(f'Logged in as {form.companyName.data}', 'success')
             return redirect(url_for('main.index'))
         else:
             flash(f'Login unsuccessful. Please check company name and email', 'danger')
