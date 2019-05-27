@@ -53,6 +53,7 @@ def edit_post(id):
         job.requirements = form.requirements.data 
         job.how_to_apply = form.how_to_apply.data 
         db.session.commit()
+        flash(f'Job post edited by {job.author.companyName}!', 'success')
         return redirect(url_for('posts.job', id=job.id))
 
     elif request.method == 'GET':
