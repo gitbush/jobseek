@@ -1,6 +1,7 @@
 from flask import render_template, url_for, redirect, flash, request, Blueprint
 from jobseek.models import employer, job_post, location, sector
 from jobseek.job_posts.forms import JobForm
+from jobseek import db
 from flask_login import login_user, current_user, logout_user, login_required
 
 
@@ -18,7 +19,7 @@ def create_job():
     if form.validate_on_submit():
         new_job = job_post(title=form.title.data, sector_id=form.sector.data.id, jobType=form.jobType.data, location_id=form.location.data.id ,
                             salary=form.salary.data, role_sum=form.summary.data, resp=form.responsibilities.data, requirements=form.requirements.data,
-                            how_to_postsly=form.how_to_postsly.data, author=current_user)
+                            how_to_apply=form.how_to_apply.data, author=current_user)
         db.session.add(new_job)
         db.session.commit()
         flash(f'Job post created by {new_job.author.companyName}!', 'success')
@@ -50,7 +51,7 @@ def edit_post(id):
         job.role_sum = form.summary.data 
         job.resp = form.responsibilities.data 
         job.requirements = form.requirements.data 
-        job.how_to_postsly = form.how_to_postsly.data 
+        job.how_to_apply = form.how_to_apply.data 
         db.session.commit()
         return redirect(url_for('posts.job', id=job.id))
 
@@ -63,7 +64,7 @@ def edit_post(id):
         form.summary.data = job.role_sum
         form.responsibilities.data = job.resp
         form.requirements.data = job.requirements
-        form.how_to_postsly.data = job.how_to_postsly        
+        form.how_to_apply.data = job.how_to_apply        
 
     return render_template('create_job.html', form=form, title='Edit Job Post')
 
