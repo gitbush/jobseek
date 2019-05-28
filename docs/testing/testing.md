@@ -74,5 +74,5 @@ User stories are taken the UX section of [readme.md](readme.md).
 
 Jobseek functionality, cross-browser and responsiveness were tested manually and documented in excel spreadsheets:
 
-- [Functionality Testing](docs/testing/Functional_testing.xlsx)
-- [Cross-browser and device testing](docs/testing/browser_testing.xlsx)
+- [Functionality Testing](Functional_testing.xlsx)
+- [Cross-browser and device testing](browser_testing.xlsx)
