@@ -51,4 +51,5 @@ def login():
 @employers.route("/logout")
 def logout():
     logout_user()
+    flash(f'You are now logged out', 'success')
     return redirect(url_for('main.index'))
