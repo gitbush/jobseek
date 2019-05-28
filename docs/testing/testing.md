@@ -1,6 +1,6 @@
 # Jobseek testing
 
-All testing was done manually.
+All testing was done manually throughout development and at project end.
 
 ## User Stories
 
@@ -69,3 +69,10 @@ User stories are taken the UX section of [readme.md](readme.md).
 
 5. *Know how many other jobseekers have applied for certain roles.*
 6. *To order job posts based on different criteria*
+
+## Manual Testing
+
+Jobseek functionality, cross-browser and responsiveness were tested manually and documented in excel spreadsheets:
+
+- [Functionality Testing](docs/testing/Functional_testing.xlsx)
+- [Cross-browser and device testing](docs/testing/browser_testing.xlsx)
