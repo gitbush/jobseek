@@ -249,10 +249,9 @@ Now we need to connect to a MYSQL database. Heroku only allows connecting to MYS
 
 1. Click on your app on your heroku dashboard and follow resources > find more add-ons > JawsDB MYSQL. (you can use whichever MYSQL add-on you choose but for this we will use JawsDB).
 2. Follow JawsDB MYSQL > Install JawsDB MYSQL > Select your app from "app to be provisioned" > Provision add-on. A JawsDB database has now been created for you.
-3. Navigate to settings > Reveal Config Vars. You will see a JAWS_URL variable with a mysql connection string. This contains everything needed to connect to the database. The connection string is formed as follows:
-   - mysql://USER:PASSWORD@HOST/DB
-4. To taylor it to your app you will need to replace "JAWS_URL" with "SQL_ALCHEMY_URI" as this is the environment variable name set in config.py. 
-5. Add pymysql connector to connection string. The connection string will  look like "mysql://..[connection string]..". We need to change it to "mysql+pymysql://...[connection string]..." to allow python to connect to the database via your app.
+3. Navigate to settings > Reveal Config Vars. You will see a JAWSDB_URL variable with a mysql connection string. This contains everything needed to connect to the database. The connection string is formed as follows:
+   - mysql://USER:PASSWORD@HOST/DB 
+4. Add pymysql connector to connection string. The connection string will  look like "mysql://..[connection string]..". We need to change it to "mysql+pymysql://...[connection string]..." to allow python to connect to the database via your app.
 
 Your jobseek app and database are now set up and connected. The tables have been created and now you can populate with some example data.
 
@@ -275,8 +274,7 @@ In addition, you can also run the code locally.
     -  `pip install -r requirements.txt` 
     -  (Edit .gitignore `venv/` with your virtual env name)
 3. Now create an environment variable on your machine with your connection string:
-    - Windows: `setx SQL_ALCHEMY_URI = "mysql+pymysql://...[connection string]..."`
-    - Mac: 
+    - Windows: `setx JAWSDB_URL "mysql+pymysql://...[connection string]..."`
 4. CD into the project root and use:
     - `python app.py` to run the app on local host.
 
