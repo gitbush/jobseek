@@ -15,9 +15,7 @@ Jobseek is my DCD (Data Centric Development) milestone project for Code Institut
   3. To edit any job posts I have made with potential updated content.
   4. To remove/delete a filled or no longer available job post.
   5. Any job posts that I have created are protected from risk of modifying/deleting from anyone other than the creator.
-  6. *To see all job posts that I have created*
-  7. *To be able to show my company name and logo*
-  8. *To be able to update my logo*
+  6. To be able to show my company name and logo
   
   **As a jobseeker I want:**
 
@@ -25,8 +23,6 @@ Jobseek is my DCD (Data Centric Development) milestone project for Code Institut
  2. To view any roles that are within a certain sector, salary, location and employment type or a mixture of all.
  3. Details on how to apply for any roles of interest.
  4. See how long job posts have been advertised.
- 5. *Know how many other jobseekers have applied for certain roles.*
- 6. *To order job posts based on different criteria*
   
 ### Requirements
 
@@ -63,8 +59,7 @@ To acheive the users needs I concluded the following requirements would be neede
 - The black opacity overlay dulls the bright colours of the background images for a comfortable UX.
 
 ### Wireframes
-Adobe XD was used to draw up <a href="Jobseek-wireframes.xd">wireframes</a> prior to development.
-
+Adobe XD was used to draw up wireframes prior to development and can be found in the **docs** folder of this project.
 
 # Features
 ## Existing features
@@ -283,10 +278,7 @@ User stories are taken the UX section.
 
 ## Manual Testing
 
-Jobseek functionality, cross-browser and responsiveness were tested manually and documented in excel spreadsheets:
-
-- [Functionality Testing](Functional_testing.xlsx)
-- [Cross-browser and device testing](browser_testing.xlsx)
+Jobseek functionality, cross-browser and responsiveness were tested manually and documented in excel spreadsheets located in the **docs** folder of this project.
 
 ## Deployment and Database Management
 
