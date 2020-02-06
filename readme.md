@@ -2,25 +2,7 @@
 
 [Jobseek](https://jobseek-app.herokuapp.com/) serves as a tool for employers to advertise new positions within the company. Jobseekers can view these jobs with information on how to apply.
 
-Jobseek is my DCD (Data Centric Development) milestone project for Code Institutes Full Stack Web Developer course. Project breif below.
-
-I chose to go with my own idea of a job advertisement site while still following the project guidlines and requirements.
-
-### CI breif
-- **CREATE AN ONLINE COOKBOOK**
-    - Create a web application that allows users to store and easily     access cooking recipes
-    - Put some effort into designing a database schema based on recipes, and any other related properties and entities (e.g. views, upvotes, ingredients, recipe authors, allergens, author’s country of origin, cuisine etc…). Make sure to put some thought into the relationships between them, and use either foreign keys (in the case of a relational database) or nesting (in the case of a document store) to connect these pieces of data
-    - Create the backend code and frontend form to allow users to add new recipes to the site (at least a basic one, if you haven’t taken the frontend course)
-    - Create the backend code to group and summarise the recipes on the site, based on their attributes such as cuisine, country of origin, allergens, ingredients, etc. and a frontend page to show this summary, and make the categories clickable to drill down into a filtered view based on that category. This frontend page can be as simple or as complex as you’d like; you can use a Python library such as matplotlib, or a JS library such as d3/dc (that you learned about if you took the frontend modules) for visualisation
-    - Create the backend code to retrieve a list of recipes, filtered based on various criteria (e.g. allergens, cuisine, etc…) and order them based on some reasonable aspect (e.g. number of views or upvotes).
-    - Create a frontend page to display these, and to show some summary statistics around the list (e.g. number of matching recipes, number of new recipes. Optionally, add support for pagination, when the number of results is large.
-    - Create a detailed view for each recipes, that would just show all attributes for that recipe, and the full preparation instructions.
-    - Allow for editing and deleting of the recipe records, either on separate pages, or built into the list/detail pages.
-    - Optionally, you may choose to add basic user registration and authentication to the site. This can as simple as adding a username field to the recipe creation form, without a password (for this project only, this is not expected to be secure).
-
-- **CREATE YOUR OWN PROJECT**
-    - If you choose to create your project outside the brief, the scope should be similar to that of the example brief above. If you want some ideas, please ask your mentor for advice and direction.
-
+Jobseek is my DCD (Data Centric Development) milestone project for Code Institutes Full Stack Web Developer course. 
 
 ## UX
 
@@ -84,54 +66,62 @@ To acheive the users needs I concluded the following requirements would be neede
 Adobe XD was used to draw up <a href="Jobseek-wireframes.xd">wireframes</a> prior to development.
 
 
-## Features
-### Existing features
-- **Pages**
-  - **Any page**
-    - **Navigation**
-      - Jobseek logo links to index
-      - Anonymous user menu items:
-        - Register
-        - Login
-        - Home
-      - Logged in user menu items:
-        - Create Job Post   
-        - Logout 
-        - Home
-
-    - **Footer**
-        - Breif about section 
-        - Jobseek logo links to index
-        - Logged in user can see their logo and company name displayed as indication of active user.
-
-  - **Home page (index.html)**
-    - Show all job posts summaries with:
-      - Salary, job type, location, company name, company logo, role summary
-      - Logged in user can click edit on their created job posts
-    - Filter job posts functionality
-    - *Order job posts functionality*
-    - Job post job title send user to full detailed view
+# Features
+## Existing features
+### Elements of every page
+#### **Navigation**
+- The navbar features on every page with text menu items for navigation.
+- Different menu items are available for authorised or anonymous users:
+  - All users:
+    - Jobseek logo on the left links to the home page.
+    - **Home** 
+  - Anonymous users:
+    - **Register** 
+    - **Login** 
+  - Authenticated users:
+    - **Create Job Post**   
+    - **Logout** 
   
-  - **Single full job post**
-    - Show user detailed view of job post
-      - Role summary
-      - Role requirements
-      - Role responsibilities 
-      - How to apply 
-      - Logged in user can click edit or delete on their created job posts
-      - *How many applications*
-  - **Register**
-    - Allows employers to register their company to advertise new roles
-      - Employers can link company logo to show on job posts
-  - **Login**
-    - Registered users can login to add/edit or delete job posts.
-  - **Create job post**
-    - Allow logged in user to create a new job post under their company name.
-    - Font editor on each field eg bullet points, bold, underline etc
-    - Select from drop down for location and sector (to allow for easier grouping for filters)
-  - **Edit job post**
-    -  Logged in users will be sent here if edit is clicked on home page job post.
-    - Allow logged in user to edit any field or delete entire post.
+**Footer**
+  - Breif about section with a disclaimer about site information
+  - Jobseek logo which links to index
+  - Logged in user can see their logo and company name displayed as indication of active user.
+
+### **Home page**
+  - Shows all job posts summaries with:
+    - Salary, job type, location, company name, company logo, role summary
+    - Logged in user can click edit on their created job posts
+  - Filter job posts functionality
+  - *Order job posts functionality*
+  - Job post job title sends user to full detailed view
+  
+### **Single full job post**
+  - Shows full detailed view of job post including:
+    - Role summary
+    - Role requirements
+    - Role responsibilities 
+    - How to apply 
+    - Logged in user can click edit or delete on their created job posts
+  
+### **Register**
+  - Allows employers to register their company to advertise new roles
+    - Employers can link company logo to show on job posts
+  - Validation is provided for this form and the user will be notified of any invalid inputs after a submit attempt.
+
+### **Login**
+  - Registered users can login to add/edit or delete job posts.
+  - Validation is provided for this form and the user will be notified of any invalid inputs after a submit attempt.
+  - Once logged in a **Create Job Post** button will be available on the navbar.
+
+### **Create job post**
+  - Allow logged in user to create a new job post under their company name.
+  - Font editor on each field eg bullet points, bold, underline etc
+  - Select from drop down for location and sector (to allow for easier grouping for filters)
+
+### **Edit job post**
+  -  Logged in users will be sent here if edit is clicked on home page job post.
+  - Allows logged in user to edit any field or delete entire post.
+  - The form is the same as the create job post page with current details populating form.
 
 **Other features**
 1. **Flash messages**
@@ -156,7 +146,7 @@ Adobe XD was used to draw up <a href="Jobseek-wireframes.xd">wireframes</a> prio
 2. Click to apply:
     - Allow jobseekers to send their CV to employers from job post page.
 
-## Technologies Used
+# Technologies Used
 
 HTML, CSS and Javascript were used throught this project as well as:
 - [JQuery](https://jquery.com)
