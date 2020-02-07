@@ -15,8 +15,10 @@ def sector_choice():
 def choice():
     return job_post.query
 
-# wtforms create a job class
 class JobForm(FlaskForm):
+    """
+    Job post form
+    """
     title = StringField('Job Title', validators=[DataRequired()])
     sector = QuerySelectField('Sector', query_factory=sector_choice, get_label=lambda a: a.sector)
     jobType = SelectField('Job Type', choices=[('(Please select)', '(Please select)'), ('Full-time','Full-time' ), ('Part-time', 'Part-time'), ('Contract', 'Contract')], default=1)

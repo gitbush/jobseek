@@ -73,6 +73,9 @@ def edit_post(id):
 @posts.route("/job/<int:id>/delete", methods=['POST'])
 @login_required
 def delete_post(id):
+    """
+    Get relevant job post and delete from db
+    """
     job = job_post.query.get(id)
     db.session.delete(job)
     db.session.commit()
