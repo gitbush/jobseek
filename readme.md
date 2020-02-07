@@ -303,8 +303,8 @@ Now we need to connect to a MYSQL database. Heroku only allows connecting to MYS
 1. Click on your app on your heroku dashboard and follow resources > find more add-ons > JawsDB MYSQL. (you can use whichever MYSQL add-on you choose but for this we will use JawsDB).
 2. Follow JawsDB MYSQL > Install JawsDB MYSQL > Select your app from "app to be provisioned" > Provision add-on. A JawsDB database has now been created for you.
 3. Navigate to settings > Reveal Config Vars. You will see a JAWSDB_URL variable with a mysql connection string. This contains everything needed to connect to the database. The connection string is formed as follows:
-   - mysql://USER:PASSWORD@HOST/DB 
-4. Add pymysql connector to connection string. The connection string will  look like "mysql://..[connection string]..". We need to change it to "mysql+pymysql://...[connection string]..." to allow python to connect to the database via your app.
+   - `mysql://<USER>:<PASSWORD>@<HOST>/<DB>` 
+4. Add pymysql connector to connection string. The connection string will  look like `"mysql://<connection string>"`. We need to change it to `"mysql+pymysql://<connection string>"` to allow python to connect to the database via your app.
 
 Your jobseek app and database are now set up and connected. The tables have been created and now you can populate with some example data.
 
