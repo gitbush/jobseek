@@ -10,6 +10,8 @@ def choices():
     jobType_choices = [('0', 'Job Type')]
     location_choices = [(0, 'Location')]
     job_posts = job_post.query.all()
+
+    # if user selection not 0 or field name add the available list
     for g in job_posts:
         if (g.salary, g.salary) not in salary_choices:
             salary_choices.append((g.salary, g.salary))
