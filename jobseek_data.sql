@@ -37,7 +37,7 @@ INSERT INTO `employer` VALUES (1,'test2','tests@gmail.com','http://job.pharmaglo
                               (3,'wwwww','www@dd.com','http://job.pharmaglobiz.com/images/default-logo.png'),
                               (4,'A N Other Builders','admin@ano.com','https://cdn2.vectorstock.com/i/1000x1000/23/96/building-town-construction-logo-vector-19182396.jpg'),
                               (5,'Be Strong','info@strong.com','https://cms-assets.tutsplus.com/uploads/users/151/posts/32516/image/Placeit4.jpg'),
-                              (6,'Accounting & Financial Ltd','info@acltd.com','https://realdeals.xyz/wp-content/uploads/2017/09/Accounting-Logo995.jpg'),
+                              (6,'Accounting & Financial Ltd','info@acltd.com','https://i.ibb.co/s3QxnYW/accounting-logo.png'),
                               (7,'Tech Centre','info@tech.com','https://nice-assets-3.s3-accelerate.amazonaws.com/smart_templates/39b376b36ad04b7b89b6db4e75871711/assets/preview_fdc588c8e359e677cd4a517865bfd584.jpg'),
                               (8,'Digi tech','admin@digi.com','https://cdn1.vectorstock.com/i/1000x1000/26/20/icon-hi-tech-company-logo-design-business-vector-20812620.jpg'),
                               (9,'Base Over Apex','info@base.com','https://i.pinimg.com/originals/7c/33/f3/7c33f3eb1e875e327d49eaa4e0670c33.jpg'),
