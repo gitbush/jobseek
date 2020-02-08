@@ -13,7 +13,7 @@ def index():
     
     # find page for pagination
     page = request.args.get('page', 1, type=int)  
-    job_posts = job_post.query.order_by(job_post.date_posted.desc()).paginate(page=page, per_page=2)
+    job_posts = job_post.query.order_by(job_post.date_posted.desc()).paginate(page=page, per_page=5)
     
     # total posts for refine results 
     job_posts_total = job_posts.total 
@@ -59,7 +59,7 @@ def index():
                                                 job_post.sector_id == sector_id,
                                                 job_post.salary == salary,
                                                 job_post.location_id == location_id
-                                                )).order_by(job_post.date_posted.desc()).paginate(page=page, per_page=2)
+                                                )).order_by(job_post.date_posted.desc()).paginate(page=page, per_page=5)
         
         # current sector and location filters placeholders
         sectorField = sector.query.get(form.sector.data)
