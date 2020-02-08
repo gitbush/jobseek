@@ -17,13 +17,16 @@ def register():
     form = RegisterForm()
     if form.validate_on_submit():
         if form.logo.data == '':
-            emp = employer(companyName=form.companyName.data, email=form.companyEmail.data)
+            emp = employer(companyName=form.companyName.data, email=form.companyEmail.data, logo_url='https://i.ibb.co/F6jkzLK/default.jpg')
         else:
             emp = employer(companyName=form.companyName.data, email=form.companyEmail.data, logo_url=form.logo.data)
         db.session.add(emp)
         db.session.commit()
-        flash(f'Account created for {form.companyName.data}! You can now login.', 'success')
-        return redirect(url_for('employers.login'))
+
+        # log new user in and send to home page
+        login_user(emp)
+        flash(f'Logged in as {form.companyName.data}', 'success')
+        return redirect(url_for('main.index'))
     
     return render_template('register.html', form=form)
     
