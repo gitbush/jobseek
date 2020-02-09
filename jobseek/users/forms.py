@@ -14,14 +14,18 @@ class RegisterForm(FlaskForm):
 
     # custom validation checking if a user has already signed up with company name and email
     def validate_companyName(self, companyName):
-        ''' If details already registered, show error msg asking to login '''
+        """ 
+        If details already registered, show error msg asking to login
+        """
 
         emp = employer.query.filter_by(companyName=companyName.data).first()
         if emp:
             raise ValidationError('Company already exists on Jobseek. Please login')
 
     def validate_companyEmail(self, companyEmail):
-        ''' If details already registered, show error msg asking to use alternate email '''
+        """ 
+        If details already registered, show error msg asking to use alternate email
+        """
 
         emp = employer.query.filter_by(email=companyEmail.data).first()
         if emp:

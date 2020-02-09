@@ -9,4 +9,4 @@ class RefineForm(FlaskForm):
     sector = SelectField('Sector', coerce=int)
     salary = SelectField('Salary')   
     location = SelectField('Location', coerce=int)
-    submit = SubmitField('Refine')
+    submit = SubmitField('Filter')
