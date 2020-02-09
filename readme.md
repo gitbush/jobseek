@@ -26,7 +26,7 @@ Jobseek is my DCD (Data Centric Development) milestone project for Code Institut
   
 ### Requirements
 
-To acheive the users needs I concluded the following requirements would be needed:
+To achieve the users needs I concluded the following requirements would be needed:
 
 - **Database** - Mysql was used as the RDMS with the following tables:
     - Employer - To store all registered employers
@@ -55,7 +55,7 @@ To acheive the users needs I concluded the following requirements would be neede
 - All icons were chosen to represent to be understood by everyone and compliment the text that follows.
 
 **Backgrounds**
-- All backgrounds were chosen to show a proffesional yet inspiring theme.
+- All backgrounds were chosen to show a professional yet inspiring theme.
 - The black opacity overlay dulls the bright colours of the background images for a comfortable UX.
 
 ### Wireframes
@@ -78,7 +78,7 @@ Adobe XD was used to draw up wireframes prior to development and can be found in
     - **Logout** 
   
 **Footer**
-  - Breif about section with a disclaimer about site information
+  - Brief about section with a disclaimer about site information
   - Jobseek logo which links to index
   - Logged in user can see their logo and company name displayed as indication of active user.
 
@@ -87,7 +87,6 @@ Adobe XD was used to draw up wireframes prior to development and can be found in
     - Salary, job type, location, company name, company logo, role summary
     - Logged in user can click edit on their created job posts
   - Filter job posts functionality
-  - *Order job posts functionality*
   - Job post job title sends user to full detailed view
   
 ### **Single full job post**
@@ -122,16 +121,13 @@ Adobe XD was used to draw up wireframes prior to development and can be found in
 1. **Flash messages**
      - Flash messages were used to notify users of successfull/unsuccessfull actions eg, created job posts, incorrect login
 2. **Form validation**
-    - All forms were created with WTforms. WTforms built in validations provide a much cleaner, desciptive and overall error coverage eg. using invalid credentials, invalid character count.
+    - All forms were created with WTforms. WTforms built in validations provide a clean and desciptive error coverage.
 3. **Responsivenesss**
     - Jobseek is fully responsive across all devices and screen sizes as well cross browser.
 4. **Pagination**
     - A limit of X number of job posts are displayed on a single page. Pagination was used to provide a more manigeable UX.
 5. **Remember me**
     - A remember token is stored on the users machine so they can stay logged in for a short time if navigating away from the site.
-6. **Custom error pages**
-    - TBD 
-
 
 ### Features Left to Implement beyond scope of project
 1. Further user authentication:
@@ -140,6 +136,11 @@ Adobe XD was used to draw up wireframes prior to development and can be found in
     - Admin - monitor job posts and jobseekers, authenticate users before allowing access.
 2. Click to apply:
     - Allow jobseekers to send their CV to employers from job post page.
+3. Custom error pages
+    - More descriptive error pages
+4. File upload
+    - Employers can currrently input a url for their company logo. This can lead to the url being invalid and losing the logo. 
+      A file upload functionality would be a more secure way.
 
 # Technologies Used
 
@@ -212,7 +213,7 @@ SQLAlchmey was used for the majority of the interactions with the database and t
 
 All testing was done manually throughout development and at project end.
 
-## User Stories
+### User Stories
 
 User stories are taken the UX section.
 
